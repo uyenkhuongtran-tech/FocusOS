@@ -2,559 +2,376 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d0f12">
-<title>FocusOS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#fff3d6">
+<title>Sao Chăm Chỉ ⭐ — FocusOS Nhí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg1:#fff6e0; --bg2:#ffe3ec; --bg3:#dff6ff;
+  --card:#ffffff; --ink:#3a2a5d; --ink2:#7b6ca6;
+  --yellow:#ffc83d; --orange:#ff8a5c; --coral:#ff6b8a;
+  --mint:#3ddc97; --sky:#4cc3ff; --purple:#8b5cf6; --pink:#ff7eb6;
+  --shadow:0 8px 0 rgba(0,0,0,.08); --shadow2:0 12px 30px rgba(123,108,166,.25);
+  --r:22px; --r2:30px;
+}
+body{
+  font-family:'Fredoka','Baloo 2','Trebuchet MS',system-ui,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));
+  background-attachment:fixed; min-height:100vh; padding:14px; overflow-x:hidden;
+  font-size:18px; font-weight:500;
+}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding-bottom:40px}
+.top{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:var(--r2);
+  padding:14px 16px;box-shadow:var(--shadow2);position:relative}
+.mascot{font-size:46px;line-height:1;animation:bob 2.4s ease-in-out infinite;cursor:pointer}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-7px) rotate(4deg)}}
+.hello{flex:1;min-width:0}
+.hello .hi{font-size:14px;color:var(--ink2);font-weight:600}
+.hello .nm{font-size:24px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer}
+.hello .nm .pen{font-size:15px;opacity:.5}
+.sound{width:48px;height:48px;border:none;border-radius:50%;background:var(--bg1);font-size:22px;
+  cursor:pointer;box-shadow:var(--shadow);transition:transform .1s}
+.sound:active{transform:scale(.9)}
+.reward{background:linear-gradient(135deg,#fff,#fff8ec);border-radius:var(--r2);padding:18px;
+  box-shadow:var(--shadow2);border:3px solid #ffe6a6;text-align:center}
+.reward .ttl{font-size:16px;color:var(--ink2);font-weight:600;margin-bottom:4px}
+.trophy{font-size:60px;line-height:1;transition:transform .3s;filter:grayscale(.7) opacity(.45)}
+.trophy.win{filter:none;animation:pop .5s}
+.starsrow{display:flex;justify-content:center;gap:8px;margin:10px 0 6px;flex-wrap:wrap}
+.starsrow .st{font-size:34px;filter:grayscale(1) opacity(.35);transition:all .3s}
+.starsrow .st.on{filter:none;animation:pop .4s}
+.bar{height:16px;background:#ffe6a6;border-radius:99px;overflow:hidden;margin-top:8px}
+.bar>i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--yellow),var(--mint));transition:width .5s cubic-bezier(.5,1.6,.4,1)}
+.goalrow{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;font-size:14px;color:var(--ink2)}
+.goalrow button{width:34px;height:34px;border:none;border-radius:50%;background:var(--bg2);font-size:20px;
+  font-weight:700;cursor:pointer;color:var(--coral);box-shadow:var(--shadow)}
+.goalrow button:active{transform:scale(.9)}
+.sec-h{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:700;margin:4px 4px -2px}
+.sec-h .e{font-size:24px}
+.tasks{display:flex;flex-direction:column;gap:12px}
+.task{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:var(--r);
+  padding:14px 16px;box-shadow:var(--shadow);border:3px solid transparent;cursor:pointer;
+  transition:transform .12s, border-color .2s, opacity .3s}
+.task:active{transform:scale(.98)}
+.task .emo{font-size:34px;line-height:1;width:42px;text-align:center}
+.task .tx{flex:1;font-size:19px;font-weight:600}
+.task .chk{width:40px;height:40px;border-radius:50%;border:4px solid #e3ddf3;display:flex;
+  align-items:center;justify-content:center;font-size:22px;color:#fff;transition:all .2s}
+.task.done{border-color:var(--mint);background:#f2fff9}
+.task.done .tx{text-decoration:line-through;color:var(--ink2)}
+.task.done .chk{background:var(--mint);border-color:var(--mint);animation:pop .4s}
+.task .del{font-size:20px;opacity:.3;padding:4px}
+.task .del:active{opacity:.8}
+.empty{text-align:center;color:var(--ink2);background:var(--card);border-radius:var(--r);
+  padding:24px;box-shadow:var(--shadow);font-weight:600}
+.empty .big{font-size:40px;display:block;margin-bottom:6px}
+.bigbtn{border:none;border-radius:var(--r2);padding:18px;font-size:22px;font-weight:700;color:#fff;
+  font-family:inherit;cursor:pointer;box-shadow:0 7px 0 rgba(0,0,0,.13);transition:transform .1s, box-shadow .1s;
+  display:flex;align-items:center;justify-content:center;gap:10px}
+.bigbtn:active{transform:translateY(5px);box-shadow:0 2px 0 rgba(0,0,0,.13)}
+.bigbtn.add{background:linear-gradient(135deg,var(--coral),var(--orange))}
+.bigbtn.go{background:linear-gradient(135deg,var(--purple),var(--sky))}
+.bigbtn.full{width:100%}
+.timer{background:var(--card);border-radius:var(--r2);padding:20px;box-shadow:var(--shadow2);text-align:center}
+.ring-wrap{position:relative;width:200px;height:200px;margin:6px auto 10px}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-wrap .face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-wrap .face .ch{font-size:46px;line-height:1}
+.ring-wrap .face .tm{font-size:34px;font-weight:700;margin-top:2px}
+.durs{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+.dur{border:none;border-radius:16px;padding:10px 16px;font-size:16px;font-weight:700;font-family:inherit;
+  background:var(--bg1);color:var(--ink2);cursor:pointer;box-shadow:var(--shadow)}
+.dur.on{background:var(--purple);color:#fff}
+.dur:active{transform:scale(.94)}
+.tbtns{display:flex;gap:10px}
+.week{background:var(--card);border-radius:var(--r2);padding:16px;box-shadow:var(--shadow2)}
+.days{display:flex;justify-content:space-between;gap:4px;margin-top:10px}
+.day{flex:1;text-align:center}
+.day .dot{width:42px;height:42px;margin:0 auto 4px;border-radius:50%;background:var(--bg1);
+  display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:inset 0 0 0 3px #f0ebfa}
+.day.win .dot{background:linear-gradient(135deg,var(--yellow),var(--orange));box-shadow:none;animation:pop .4s}
+.day.today .lbl{color:var(--coral);font-weight:700}
+.day .lbl{font-size:13px;color:var(--ink2);font-weight:600}
+.foot{text-align:center;color:var(--ink2);font-weight:600;font-size:15px;padding:6px}
+.overlay{position:fixed;inset:0;background:rgba(58,42,93,.45);backdrop-filter:blur(3px);
+  display:none;align-items:flex-end;justify-content:center;z-index:50}
+.overlay.show{display:flex;animation:fade .2s}
+.sheet{background:var(--card);width:100%;max-width:520px;border-radius:var(--r2) var(--r2) 0 0;
+  padding:22px 20px 30px;box-shadow:0 -10px 40px rgba(0,0,0,.2);animation:up .25s cubic-bezier(.4,1.4,.5,1)}
+.sheet h3{font-size:22px;margin-bottom:14px;text-align:center}
+.preset{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{border:none;border-radius:16px;padding:10px 12px;font-size:15px;font-weight:600;font-family:inherit;
+  background:var(--bg1);cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow)}
+.chip:active{transform:scale(.94)}
+.sep{text-align:center;color:var(--ink2);font-size:14px;margin:6px 0 10px}
+.emojis{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px}
+.emo-pick{width:46px;height:46px;border:3px solid transparent;border-radius:14px;background:var(--bg1);
+  font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.emo-pick.on{border-color:var(--purple);background:#efe9ff;transform:scale(1.05)}
+.tinput{width:100%;border:3px solid #e3ddf3;border-radius:16px;padding:14px 16px;font-size:18px;
+  font-family:inherit;font-weight:600;color:var(--ink);margin-bottom:14px;outline:none}
+.tinput:focus{border-color:var(--purple)}
+.modal-btns{display:flex;gap:10px}
+.modal-btns .ghost{background:var(--bg1);color:var(--ink2);box-shadow:var(--shadow)}
+.celebrate{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60;pointer-events:none}
+.celebrate.show{display:flex}
+.celebrate .msg{background:#fff;border-radius:var(--r2);padding:26px 34px;box-shadow:var(--shadow2);
+  text-align:center;animation:pop .5s;border:4px solid var(--yellow)}
+.celebrate .msg .b{font-size:64px}
+.celebrate .msg .t{font-size:24px;font-weight:700;margin-top:6px}
+.confetti{position:fixed;top:-20px;width:12px;height:18px;z-index:55;border-radius:3px;pointer-events:none}
+@keyframes pop{0%{transform:scale(.4)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes fall{to{transform:translateY(105vh) rotate(640deg)}}
+</style>
 </head>
 <body>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans)}
-:root{
-  --bg:#0d0f12;--bg2:#141720;--bg3:#1c2030;--bg4:#242840;
-  --accent:#6366f1;--accent2:#818cf8;--accent3:#312e81;
-  --green:#10b981;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;
-  --text1:#f1f5f9;--text2:#94a3b8;--text3:#475569;
-  --border:#1e2535;--border2:#2a3147;
-  --r:10px;--r2:16px
-}
-.app{display:flex;height:100vh;min-height:600px;background:var(--bg);color:var(--text1);overflow:hidden;font-size:14px}
-.sidebar{width:220px;min-width:220px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:16px 12px}
-.logo{display:flex;align-items:center;gap:8px;padding:4px 8px 20px;font-size:15px;font-weight:500;letter-spacing:-0.3px}
-.logo-icon{width:28px;height:28px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px}
-.nav-section{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text3);padding:0 8px;margin:8px 0 4px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:var(--r);cursor:pointer;color:var(--text2);transition:all .15s;margin-bottom:2px}
-.nav-item:hover{background:var(--bg3);color:var(--text1)}
-.nav-item.active{background:var(--accent3);color:var(--accent2)}
-.nav-item i{font-size:16px;width:16px}
-.sidebar-bottom{margin-top:auto;padding-top:12px;border-top:1px solid var(--border)}
-.energy-bar-wrap{padding:8px;background:var(--bg3);border-radius:var(--r);margin-bottom:8px}
-.energy-label{font-size:11px;color:var(--text3);margin-bottom:6px;display:flex;justify-content:space-between}
-.energy-bar{height:4px;background:var(--bg4);border-radius:99px;overflow:hidden}
-.energy-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:99px;transition:width .5s}
-.main{flex:1;overflow:hidden;display:flex;flex-direction:column}
-.topbar{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;background:var(--bg)}
-.topbar-title{font-size:15px;font-weight:500;flex:1}
-.topbar-actions{display:flex;gap:8px}
-.btn{padding:6px 14px;border-radius:var(--r);border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;font-size:13px;transition:all .15s;display:flex;align-items:center;gap:6px}
-.btn:hover{background:var(--bg3);color:var(--text1);border-color:var(--border2)}
-.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn-primary:hover{background:#7c3aed;border-color:#7c3aed;color:#fff}
-.btn-sm{padding:4px 10px;font-size:12px}
-.content{flex:1;overflow-y:auto;padding:24px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:18px}
-.card-sm{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px}
-.card-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
-.card-value{font-size:26px;font-weight:500;letter-spacing:-1px;color:var(--text1)}
-.card-sub{font-size:12px;color:var(--text2);margin-top:4px}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:99px;font-size:11px;font-weight:500}
-.badge-purple{background:#312e81;color:var(--accent2)}
-.badge-green{background:#064e3b;color:var(--green)}
-.badge-amber{background:#451a03;color:var(--amber)}
-.badge-red{background:#450a0a;color:var(--red)}
-.badge-blue{background:#1e3a5f;color:var(--blue)}
-.section-title{font-size:13px;font-weight:500;color:var(--text2);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
-.task-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:8px;cursor:pointer;transition:all .15s}
-.task-card:hover{border-color:var(--border2);background:var(--bg4)}
-.task-card.recommended{border-color:var(--accent);background:#1a1c3a}
-.task-title{font-size:14px;font-weight:500;color:var(--text1);margin-bottom:6px}
-.task-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.task-score{font-size:12px;color:var(--accent2);font-weight:500}
-.score-bar{height:3px;background:var(--bg4);border-radius:99px;margin-top:8px;overflow:hidden}
-.score-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width .5s}
-.divider{height:1px;background:var(--border);margin:20px 0}
-.tag{display:inline-block;padding:2px 7px;border-radius:5px;font-size:11px;background:var(--bg4);color:var(--text2);margin:2px}
-.progress-ring-wrap{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
-.timer-display{font-size:48px;font-weight:300;letter-spacing:-2px;color:var(--text1);text-align:center;font-variant-numeric:tabular-nums}
-.timer-label{font-size:12px;color:var(--text3);text-align:center;margin-bottom:16px}
-.pomo-controls{display:flex;gap:8px;justify-content:center;margin-top:16px}
-.pomo-mode-btns{display:flex;gap:6px;justify-content:center;margin-bottom:16px}
-.pomo-mode-btn{padding:5px 12px;border-radius:99px;border:1px solid var(--border2);background:transparent;color:var(--text3);cursor:pointer;font-size:12px}
-.pomo-mode-btn.active{background:var(--accent3);color:var(--accent2);border-color:var(--accent)}
-.focus-mode-overlay{position:absolute;inset:0;background:#060810;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;padding:40px}
-.focus-task-title{font-size:24px;font-weight:400;letter-spacing:-0.5px;margin-bottom:32px;text-align:center;max-width:400px;line-height:1.4}
-.checklist{width:100%;max-width:360px;margin-bottom:32px}
-.check-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
-.check-item:last-child{border:0}
-.check-box{width:18px;height:18px;border:1.5px solid var(--border2);border-radius:5px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.check-box.checked{background:var(--accent);border-color:var(--accent)}
-.check-text{font-size:14px;color:var(--text2)}
-.check-text.done{text-decoration:line-through;color:var(--text3)}
-.quick-capture{position:fixed;bottom:24px;right:24px;z-index:50}
-.qc-btn{width:48px;height:48px;border-radius:50%;background:var(--accent);border:none;color:#fff;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(99,102,241,.4);transition:transform .15s}
-.qc-btn:hover{transform:scale(1.08)}
-.qc-popup{position:absolute;bottom:58px;right:0;width:280px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:14px;display:none}
-.qc-popup.open{display:block}
-.qc-input{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:10px 12px;color:var(--text1);font-size:14px;outline:none;margin-bottom:10px}
-.qc-input:focus{border-color:var(--accent)}
-.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-.stat-mini{text-align:center}
-.stat-mini .val{font-size:22px;font-weight:500;letter-spacing:-1px}
-.stat-mini .lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
-.kanban-wrap{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px}
-.kanban-col{min-width:180px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:12px}
-.kanban-col-title{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:10px;display:flex;justify-content:space-between}
-.kanban-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:6px;cursor:pointer}
-.kanban-card:hover{border-color:var(--border2)}
-.kanban-card-title{font-size:13px;color:var(--text1);margin-bottom:6px}
-.rec-glow{box-shadow:0 0 0 2px var(--accent),0 0 24px rgba(99,102,241,.2)}
-.pulse{animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
-.page{display:none}
-.page.active{display:block}
-.energy-btn-row{display:flex;gap:6px;margin-top:8px}
-.energy-btn{flex:1;padding:6px;border-radius:8px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;font-size:12px;text-align:center}
-.energy-btn.sel{border-color:var(--accent);background:var(--accent3);color:var(--accent2)}
-.mit-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
-.mit-num{font-size:11px;color:var(--accent2);font-weight:500;min-width:18px;padding-top:2px}
-.mit-info .title{font-size:13px;color:var(--text1);margin-bottom:3px}
-.mit-info .meta{font-size:11px;color:var(--text3)}
-.chart-bar-wrap{display:flex;align-items:flex-end;gap:6px;height:80px;margin-top:8px}
-.bar{flex:1;border-radius:4px 4px 0 0;background:var(--accent3);transition:height .5s;cursor:pointer}
-.bar:hover{background:var(--accent)}
-.bar-label{font-size:10px;color:var(--text3);text-align:center;margin-top:4px}
-.bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
-.pomodoro-arc{display:block;margin:0 auto}
-.app-wrap{position:relative;height:600px;overflow:hidden}
-</style>
-
-<div class="app-wrap">
-<div class="app" id="appRoot">
-
-<div class="sidebar" id="sidebar">
-  <div class="logo">
-    <div class="logo-icon">⚡</div>
-    <span>FocusOS</span>
-  </div>
-
-  <div class="nav-section">Workspace</div>
-  <div class="nav-item active" onclick="nav('dashboard',this)"><i class="ti ti-layout-dashboard" aria-hidden="true"></i> Dashboard</div>
-  <div class="nav-item" onclick="nav('focus',this)"><i class="ti ti-brain" aria-hidden="true"></i> Focus Mode</div>
-  <div class="nav-item" onclick="nav('tasks',this)"><i class="ti ti-checklist" aria-hidden="true"></i> My Tasks</div>
-  <div class="nav-item" onclick="nav('kanban',this)"><i class="ti ti-layout-kanban" aria-hidden="true"></i> Kanban</div>
-  <div class="nav-item" onclick="nav('pomodoro',this)"><i class="ti ti-clock-play" aria-hidden="true"></i> Pomodoro</div>
-  <div class="nav-item" onclick="nav('stats',this)"><i class="ti ti-chart-bar" aria-hidden="true"></i> Statistics</div>
-
-  <div class="nav-section" style="margin-top:12px">Projects</div>
-  <div class="nav-item" onclick="nav('projects',this)"><i class="ti ti-folder" aria-hidden="true"></i> VCCSTK Module</div>
-  <div class="nav-item" style="padding-left:24px;font-size:13px" onclick=""><i class="ti ti-target" aria-hidden="true"></i> Automation Suite</div>
-
-  <div class="sidebar-bottom">
-    <div class="energy-bar-wrap">
-      <div class="energy-label"><span>Energy level</span><span id="energyPct">75%</span></div>
-      <div class="energy-bar"><div class="energy-fill" id="energyFill" style="width:75%"></div></div>
-      <div class="energy-btn-row">
-        <button class="energy-btn" onclick="setEnergy(30,'Low')">Low</button>
-        <button class="energy-btn sel" onclick="setEnergy(75,'Mid')">Mid</button>
-        <button class="energy-btn" onclick="setEnergy(100,'High')">High</button>
-      </div>
+<div class="wrap">
+  <div class="top">
+    <div class="mascot" id="mascot" title="Chạm vào mình nè!">⭐</div>
+    <div class="hello">
+      <div class="hi">Chào buổi sáng nắng đẹp!</div>
+      <div class="nm" id="nameBtn"><span id="kidName">bé</span> 👋 <span class="pen">✏️</span></div>
     </div>
-    <div class="nav-item" onclick=""><i class="ti ti-settings" aria-hidden="true"></i> Settings</div>
+    <button class="sound" id="soundBtn" title="Bật/tắt âm thanh">🔊</button>
   </div>
-</div>
 
-<div class="main">
-  <div class="topbar">
-    <div class="topbar-title" id="pageTitle">Good morning, Kate 👋</div>
-    <div class="topbar-actions">
-      <button class="btn btn-sm" onclick="openQC()"><i class="ti ti-plus" aria-hidden="true"></i> Capture</button>
-      <button class="btn btn-sm btn-primary" onclick="enterFocusMode()"><i class="ti ti-player-play" aria-hidden="true"></i> Focus Now</button>
+  <div class="reward">
+    <div class="ttl">Hôm nay bé đã làm xong</div>
+    <div class="trophy" id="trophy">🏆</div>
+    <div class="starsrow" id="starsRow"></div>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="goalrow">
+      <span>Mục tiêu:</span>
+      <button id="goalMinus">–</button>
+      <b><span id="goalNum">3</span> ⭐</b>
+      <button id="goalPlus">+</button>
     </div>
   </div>
 
-  <div class="content">
+  <div class="sec-h"><span class="e">📋</span> Việc của bé hôm nay</div>
+  <div class="tasks" id="taskList"></div>
+  <button class="bigbtn add full" id="openAdd">➕ Thêm việc mới</button>
 
-    <!-- DASHBOARD -->
-    <div class="page active" id="page-dashboard">
-      <div class="kpi-row">
-        <div class="card-sm stat-mini"><div class="val" style="color:var(--accent2)" id="kpiFocus">3h 20m</div><div class="lbl">Focus Today</div></div>
-        <div class="card-sm stat-mini"><div class="val" style="color:var(--green)">12</div><div class="lbl">Tasks Done</div></div>
-        <div class="card-sm stat-mini"><div class="val" style="color:var(--amber)">4</div><div class="lbl">In Progress</div></div>
-        <div class="card-sm stat-mini"><div class="val" style="color:var(--red)">2</div><div class="lbl">Due Today</div></div>
-      </div>
-
-      <div class="grid2" style="margin-bottom:16px">
-        <div class="card rec-glow">
-          <div class="card-label">🎯 Recommended Next Task</div>
-          <div style="font-size:16px;font-weight:500;color:var(--text1);margin-bottom:10px;line-height:1.4">Write Robot Framework automation proposal — Slide deck section 4–6</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
-            <span class="badge badge-purple"><i class="ti ti-folder" aria-hidden="true"></i> VCCSTK</span>
-            <span class="badge badge-green">~45 min</span>
-            <span class="badge badge-amber">Due today</span>
-          </div>
-          <div style="font-size:11px;color:var(--text3);margin-bottom:6px;display:flex;justify-content:space-between"><span>Recommendation Score</span><span style="color:var(--accent2);font-weight:500">94/100</span></div>
-          <div class="score-bar"><div class="score-fill" style="width:94%"></div></div>
-          <div style="margin-top:12px;display:flex;gap:8px">
-            <button class="btn btn-primary" style="flex:1" onclick="enterFocusMode()"><i class="ti ti-player-play" aria-hidden="true"></i> Start Focus</button>
-            <button class="btn" onclick="skipTask()"><i class="ti ti-player-skip-forward" aria-hidden="true"></i> Skip</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-label">📌 Today's MIT (Most Important Tasks)</div>
-          <div class="mit-item">
-            <div class="mit-num">#1</div>
-            <div class="mit-info">
-              <div class="title">Robot Framework proposal slides</div>
-              <div class="meta"><span class="badge badge-red" style="font-size:10px">High</span> · 45 min · VCCSTK</div>
-            </div>
-          </div>
-          <div class="mit-item">
-            <div class="mit-num">#2</div>
-            <div class="mit-info">
-              <div class="title">Review TC-035 to TC-050 test cases</div>
-              <div class="meta"><span class="badge badge-amber" style="font-size:10px">Medium</span> · 30 min · QA</div>
-            </div>
-          </div>
-          <div class="mit-item" style="border:0">
-            <div class="mit-num">#3</div>
-            <div class="mit-info">
-              <div class="title">Update POM locators for OTP screen</div>
-              <div class="meta"><span class="badge badge-blue" style="font-size:10px">Normal</span> · 20 min · Automation</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid2">
-        <div class="card">
-          <div class="section-title">⏱ Pomodoro Timer
-            <button class="btn btn-sm" onclick="nav('pomodoro',null)">Open</button>
-          </div>
-          <div id="miniTimerDisp" style="font-size:36px;font-weight:300;letter-spacing:-2px;text-align:center;padding:8px 0;color:var(--text1)">25:00</div>
-          <div style="font-size:11px;color:var(--text3);text-align:center;margin-bottom:10px">Focus session · Round 1</div>
-          <div style="display:flex;gap:8px;justify-content:center">
-            <button class="btn btn-primary" id="miniPlayBtn" onclick="toggleMiniTimer()"><i class="ti ti-player-play" id="miniPlayIco" aria-hidden="true"></i></button>
-            <button class="btn" onclick="resetMiniTimer()"><i class="ti ti-refresh" aria-hidden="true"></i></button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="section-title">📊 Weekly Focus</div>
-          <div class="chart-bar-wrap" id="weekChart"></div>
-          <div style="display:flex;gap:0" id="weekLabels"></div>
-        </div>
-      </div>
+  <div class="sec-h"><span class="e">🚀</span> Giờ tập trung</div>
+  <div class="timer">
+    <div class="durs" id="durs">
+      <button class="dur on" data-min="5">5 phút</button>
+      <button class="dur" data-min="10">10 phút</button>
+      <button class="dur" data-min="15">15 phút</button>
     </div>
-
-    <!-- FOCUS MODE PAGE -->
-    <div class="page" id="page-focus">
-      <div style="max-width:480px;margin:0 auto;text-align:center;padding-top:20px">
-        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Focus Mode</div>
-        <div style="font-size:20px;font-weight:500;color:var(--text1);margin-bottom:24px;line-height:1.4">Robot Framework automation proposal — Slides 4–6</div>
-        <div class="checklist">
-          <div class="check-item" id="ci0"><div class="check-box" id="cb0" onclick="toggleCheck(0)"></div><span class="check-text" id="ct0">Outline slide 4: Page Object Model</span></div>
-          <div class="check-item" id="ci1"><div class="check-box checked" id="cb1" onclick="toggleCheck(1)"></div><span class="check-text done" id="ct1">Draft slide 5: CI/CD integration diagram</span></div>
-          <div class="check-item" id="ci2"><div class="check-box" id="cb2" onclick="toggleCheck(2)"></div><span class="check-text" id="ct2">Write slide 6: 9-week timeline</span></div>
-          <div class="check-item" style="border:0" id="ci3"><div class="check-box" id="cb3" onclick="toggleCheck(3)"></div><span class="check-text" id="ct3">Add Pabot parallel execution notes</span></div>
-        </div>
-        <div id="focusTimerDisp" style="font-size:56px;font-weight:300;letter-spacing:-3px;color:var(--text1);margin-bottom:4px">25:00</div>
-        <div style="font-size:11px;color:var(--text3);margin-bottom:20px">Deep Work · Session 1 of 4</div>
-        <div style="display:flex;gap:10px;justify-content:center">
-          <button class="btn btn-primary" id="focusPlayBtn" onclick="toggleFocusTimer()"><i class="ti ti-player-play" id="focusPlayIco" aria-hidden="true"></i> Start</button>
-          <button class="btn" onclick="resetFocusTimer()"><i class="ti ti-refresh" aria-hidden="true"></i> Reset</button>
-          <button class="btn" style="color:var(--green);border-color:#064e3b" onclick="completeTask()"><i class="ti ti-check" aria-hidden="true"></i> Complete</button>
-        </div>
-        <div style="margin-top:24px;font-size:12px;color:var(--text3)">
-          <i class="ti ti-shield" aria-hidden="true"></i> Notifications paused · No distractions
-        </div>
-      </div>
+    <div class="ring-wrap">
+      <svg width="200" height="200">
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#f0ebfa" stroke-width="16"/>
+        <circle id="ring" cx="100" cy="100" r="88" fill="none" stroke="url(#g)" stroke-width="16"
+                stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="0"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#4cc3ff"/>
+        </linearGradient></defs>
+      </svg>
+      <div class="face"><div class="ch" id="timerCh">🚀</div><div class="tm" id="timerTxt">05:00</div></div>
     </div>
-
-    <!-- TASKS -->
-    <div class="page" id="page-tasks">
-      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-        <button class="btn btn-sm" id="fAll" onclick="filterTasks('all',this)" style="background:var(--accent3);border-color:var(--accent);color:var(--accent2)">All</button>
-        <button class="btn btn-sm" id="fTodo" onclick="filterTasks('todo',this)">Todo</button>
-        <button class="btn btn-sm" id="fDoing" onclick="filterTasks('doing',this)">In Progress</button>
-        <button class="btn btn-sm" id="fDone" onclick="filterTasks('done',this)">Done</button>
-        <input id="taskSearch" style="flex:1;min-width:140px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:5px 12px;color:var(--text1);font-size:13px;outline:none" placeholder="Search tasks..." oninput="searchTasks(this.value)">
-      </div>
-      <div id="taskList"></div>
+    <div class="tbtns">
+      <button class="bigbtn go full" id="timerBtn">▶️ Bắt đầu</button>
     </div>
+  </div>
 
-    <!-- KANBAN -->
-    <div class="page" id="page-kanban">
-      <div class="kanban-wrap" id="kanbanBoard"></div>
+  <div class="week">
+    <div class="sec-h" style="margin:0"><span class="e">🗓️</span> Tuần chăm chỉ</div>
+    <div class="days" id="days"></div>
+  </div>
+
+  <div class="foot">Bé làm được mà! Cố lên nhé 💪💖</div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="sheet">
+    <h3>Bé muốn thêm việc gì? 🌈</h3>
+    <div class="preset" id="preset"></div>
+    <div class="sep">— hoặc tự tạo việc mới —</div>
+    <div class="emojis" id="emojis"></div>
+    <input class="tinput" id="taskInput" placeholder="Ví dụ: Tưới cây 🌱" maxlength="40">
+    <div class="modal-btns">
+      <button class="bigbtn ghost full" id="cancelAdd">Đóng lại</button>
+      <button class="bigbtn add full" id="confirmAdd">Thêm 🎉</button>
     </div>
-
-    <!-- POMODORO -->
-    <div class="page" id="page-pomodoro">
-      <div style="max-width:380px;margin:0 auto;text-align:center">
-        <div class="pomo-mode-btns">
-          <button class="pomo-mode-btn active" onclick="setPomoMode(25,5,this)">25/5</button>
-          <button class="pomo-mode-btn" onclick="setPomoMode(50,10,this)">50/10</button>
-          <button class="pomo-mode-btn" onclick="setPomoMode(90,20,this)">90/20</button>
-        </div>
-        <svg class="pomodoro-arc" width="200" height="200" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="85" fill="none" stroke="#1c2030" stroke-width="10"/>
-          <circle id="pomoArc" cx="100" cy="100" r="85" fill="none" stroke="#6366f1" stroke-width="10" stroke-linecap="round" stroke-dasharray="534" stroke-dashoffset="0" transform="rotate(-90 100 100)" style="transition:stroke-dashoffset .5s"/>
-        </svg>
-        <div class="timer-display" id="pomoTimerDisp" style="margin-top:-160px;margin-bottom:120px">25:00</div>
-        <div class="timer-label">Focus · Session <span id="pomoSession">1</span>/4</div>
-        <div class="pomo-controls">
-          <button class="btn btn-primary" id="pomoPlayBtn" onclick="togglePomo()"><i class="ti ti-player-play" id="pomoPlayIco" aria-hidden="true"></i> Start</button>
-          <button class="btn" onclick="resetPomo()"><i class="ti ti-refresh" aria-hidden="true"></i> Reset</button>
-          <button class="btn" onclick="skipPomo()"><i class="ti ti-player-skip-forward" aria-hidden="true"></i> Skip</button>
-        </div>
-        <div class="grid3" style="margin-top:24px">
-          <div class="card-sm"><div class="card-label">Sessions</div><div class="card-value" style="font-size:22px" id="pomoSessions">0</div></div>
-          <div class="card-sm"><div class="card-label">Focus Time</div><div class="card-value" style="font-size:22px" id="pomoTime">0m</div></div>
-          <div class="card-sm"><div class="card-label">Breaks</div><div class="card-value" style="font-size:22px" id="pomoBreaks">0</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STATS -->
-    <div class="page" id="page-stats">
-      <div class="grid2" style="margin-bottom:16px">
-        <div class="card">
-          <div class="card-label">Productivity Score</div>
-          <div class="card-value" style="color:var(--green)">82<span style="font-size:18px;color:var(--text3)">/100</span></div>
-          <div class="card-sub">↑ 12 pts from last week</div>
-        </div>
-        <div class="card">
-          <div class="card-label">Deep Work Hours (Week)</div>
-          <div class="card-value">18.5h</div>
-          <div class="card-sub">Goal: 20h · 92.5% achieved</div>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:16px">
-        <div class="section-title">Daily Focus Distribution (This Week)</div>
-        <div class="chart-bar-wrap" id="statsChart" style="height:100px"></div>
-        <div style="display:flex;gap:0" id="statsLabels"></div>
-      </div>
-      <div class="grid3">
-        <div class="card-sm"><div class="card-label">Completion Rate</div><div class="card-value" style="font-size:22px;color:var(--green)">78%</div></div>
-        <div class="card-sm"><div class="card-label">Avg Session</div><div class="card-value" style="font-size:22px">47m</div></div>
-        <div class="card-sm"><div class="card-label">Interruptions</div><div class="card-value" style="font-size:22px;color:var(--amber)">3/day</div></div>
-        <div class="card-sm"><div class="card-label">Estimate Accuracy</div><div class="card-value" style="font-size:22px">84%</div></div>
-        <div class="card-sm"><div class="card-label">Longest Session</div><div class="card-value" style="font-size:22px">1h 40m</div></div>
-        <div class="card-sm"><div class="card-label">Burnout Risk</div><div class="card-value" style="font-size:22px;color:var(--green)">Low</div></div>
-      </div>
-    </div>
-
-    <!-- PROJECTS -->
-    <div class="page" id="page-projects">
-      <div class="card" style="margin-bottom:16px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px">
-          <div>
-            <div style="font-size:16px;font-weight:500;margin-bottom:4px">VCCSTK Module — Savings Book Collateral Loan</div>
-            <div style="font-size:12px;color:var(--text2)">VIKKI Banking · QA Automation Engineer</div>
-          </div>
-          <span class="badge badge-green">Active</span>
-        </div>
-        <div style="margin-bottom:10px;font-size:12px;color:var(--text3);display:flex;justify-content:space-between"><span>Overall Progress</span><span style="color:var(--accent2)">68%</span></div>
-        <div class="score-bar" style="height:6px"><div class="score-fill" style="width:68%"></div></div>
-        <div class="grid3" style="margin-top:16px">
-          <div class="card-sm"><div class="card-label">Test Cases</div><div class="card-value" style="font-size:20px">65</div><div class="card-sub">10 sections</div></div>
-          <div class="card-sm"><div class="card-label">Automated</div><div class="card-value" style="font-size:20px;color:var(--green)">38</div><div class="card-sub">58% coverage</div></div>
-          <div class="card-sm"><div class="card-label">Pending</div><div class="card-value" style="font-size:20px;color:var(--amber)">27</div><div class="card-sub">in progress</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="section-title">Milestones</div>
-        <div class="mit-item"><div class="mit-num">M1</div><div class="mit-info"><div class="title">Login & Auth Automation</div><div class="meta"><span class="badge badge-green" style="font-size:10px">Done</span> · 12 TCs · SmartOTP, FaceAuth</div></div></div>
-        <div class="mit-item"><div class="mit-num">M2</div><div class="mit-info"><div class="title">Eligibility Check Flow</div><div class="meta"><span class="badge badge-green" style="font-size:10px">Done</span> · 8 TCs · AML, CIC, Whitelist</div></div></div>
-        <div class="mit-item"><div class="mit-num">M3</div><div class="mit-info"><div class="title">Collateral/TD Selection (TSBĐ)</div><div class="meta"><span class="badge badge-amber" style="font-size:10px">In Progress</span> · 15 TCs · LTV, CVP Long Form</div></div></div>
-        <div class="mit-item" style="border:0"><div class="mit-num">M4</div><div class="mit-info"><div class="title">eSigner & Disbursement</div><div class="meta"><span class="badge badge-blue" style="font-size:10px">Planned</span> · 18 TCs · CASA, TT06</div></div></div>
-      </div>
-    </div>
-
   </div>
 </div>
-</div>
 
-<!-- Quick Capture -->
-<div class="quick-capture" id="qcWrap">
-  <div class="qc-popup" id="qcPopup">
-    <div style="font-size:12px;color:var(--text3);margin-bottom:8px;font-weight:500">⚡ Quick Capture</div>
-    <input class="qc-input" id="qcInput" placeholder="What's on your mind? Press Enter" onkeydown="submitQC(event)">
-    <div style="display:flex;gap:6px">
-      <button class="btn btn-sm btn-primary" style="flex:1" onclick="submitQC({key:'Enter'})">Capture</button>
-      <button class="btn btn-sm" onclick="closeQC()">Cancel</button>
-    </div>
-    <div id="qcFeedback" style="font-size:11px;color:var(--green);margin-top:6px;display:none">✓ Added to Inbox</div>
-  </div>
-  <button class="qc-btn" onclick="openQC()"><i class="ti ti-plus" aria-hidden="true"></i></button>
-</div>
-
-</div>
+<div class="celebrate" id="celebrate"><div class="msg"><div class="b" id="celeB">🎉</div><div class="t" id="celeT">Giỏi quá!</div></div></div>
 
 <script>
-const tasks=[
-  {id:1,title:'Robot Framework proposal — Slides 4–6',project:'VCCSTK',status:'doing',priority:'high',est:45,score:94,tags:['Automation','RF']},
-  {id:2,title:'Review TC-035 to TC-050',project:'QA',status:'doing',priority:'high',est:30,score:87,tags:['Test Cases']},
-  {id:3,title:'Update POM locators for OTP screen',project:'Automation',status:'todo',priority:'medium',est:20,score:76,tags:['POM']},
-  {id:4,title:'Write eSigner test scenarios (TT06)',project:'VCCSTK',status:'todo',priority:'medium',est:60,score:71,tags:['eSigner','TT06']},
-  {id:5,title:'Setup Pabot parallel config',project:'Automation',status:'todo',priority:'low',est:25,score:62,tags:['Pabot','CI/CD']},
-  {id:6,title:'CASA disbursement validation',project:'VCCSTK',status:'todo',priority:'medium',est:40,score:68,tags:['CASA']},
-  {id:7,title:'Login smoke test automation',project:'VCCSTK',status:'done',priority:'high',est:30,score:95,tags:['SmartOTP']},
-  {id:8,title:'AML whitelist import test',project:'VCCSTK',status:'done',priority:'high',est:20,score:91,tags:['AML']},
-];
+/* ===== STORAGE: localStorage + fallback an toàn ===== */
+var KEY='kidfocus_v1', mem=null;
+function load(){ try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem;} }
+function save(){ try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){mem=state;} }
+function today(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
 
-const kanbanCols={
-  'Backlog':['Setup Pabot parallel config','CASA disbursement validation'],
-  'Todo':['Update POM locators for OTP screen','Write eSigner test scenarios (TT06)'],
-  'Doing':['Robot Framework proposal — Slides 4–6','Review TC-035 to TC-050'],
-  'Review':['AML whitelist import test'],
-  'Done':['Login smoke test automation','CIC eligibility check TCs']
+var DEFAULT={ name:'bé', sound:true, goal:3, tasks:[
+  {id:1,emoji:'🦷',text:'Đánh răng',done:false},
+  {id:2,emoji:'📚',text:'Học bài',done:false},
+  {id:3,emoji:'🧸',text:'Dọn đồ chơi',done:false}
+], lastDate:today(), stickers:{} };
+
+var state=load()||JSON.parse(JSON.stringify(DEFAULT));
+
+/* Ngày mới -> reset việc; ghi sticker nếu hôm qua đạt mục tiêu */
+if(state.lastDate!==today()){
+  var doneY=(state.tasks||[]).filter(function(t){return t.done;}).length;
+  if(doneY>=state.goal){ state.stickers=state.stickers||{}; state.stickers[state.lastDate]=true; }
+  (state.tasks||[]).forEach(function(t){t.done=false;});
+  state.lastDate=today(); save();
+}
+
+/* ===== SOUND ===== */
+var actx;
+function beep(freqs){ if(!state.sound)return; try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+  freqs.forEach(function(f,i){var o=actx.createOscillator(),g=actx.createGain();o.type='triangle';o.frequency.value=f;
+    o.connect(g);g.connect(actx.destination);var t=actx.currentTime+i*0.11;
+    g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.25,t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+0.22);o.start(t);o.stop(t+0.24);});}catch(e){} }
+function sFx(){beep([523,659,784,1047]);}
+function tap(){beep([660]);}
+
+/* ===== CONFETTI + CELEBRATE ===== */
+function confetti(n){ var cols=['#ffc83d','#ff6b8a','#3ddc97','#4cc3ff','#8b5cf6','#ff7eb6'];
+  for(var i=0;i<(n||40);i++){ (function(idx){ var c=document.createElement('div');c.className='confetti';
+    c.style.left=Math.random()*100+'vw';c.style.background=cols[idx%cols.length];
+    var dur=1.6+Math.random()*1.4;c.style.animation='fall '+dur+'s linear forwards';
+    c.style.transform='rotate('+Math.random()*360+'deg)';document.body.appendChild(c);
+    setTimeout(function(){c.remove();},dur*1000); })(i); } }
+var CHEERS=['Giỏi quá! 🌟','Tuyệt vời! 🎉','Bé siêu lắm! 💪','Hoan hô! 👏','Xuất sắc! ✨'];
+function celebrate(big,txt){ var el=document.getElementById('celebrate');
+  document.getElementById('celeB').textContent=big||'🎉';
+  document.getElementById('celeT').textContent=txt||CHEERS[Math.floor(Math.random()*CHEERS.length)];
+  el.classList.add('show');confetti(50);sFx();
+  clearTimeout(celebrate._t);celebrate._t=setTimeout(function(){el.classList.remove('show');},1500); }
+
+/* ===== RENDER ===== */
+function doneCount(){return state.tasks.filter(function(t){return t.done;}).length;}
+function render(){
+  document.getElementById('kidName').textContent=state.name;
+  document.getElementById('goalNum').textContent=state.goal;
+  document.getElementById('soundBtn').textContent=state.sound?'🔊':'🔇';
+  var list=document.getElementById('taskList');list.innerHTML='';
+  if(state.tasks.length===0){
+    list.innerHTML='<div class="empty"><span class="big">🌱</span>Chưa có việc nào.<br>Bấm nút thêm việc nhé!</div>';
+  } else {
+    state.tasks.forEach(function(t){
+      var d=document.createElement('div');d.className='task'+(t.done?' done':'');
+      d.innerHTML='<div class="emo">'+t.emoji+'</div><div class="tx"></div>'+
+                  '<div class="chk">'+(t.done?'✓':'')+'</div><div class="del">🗑️</div>';
+      d.querySelector('.tx').textContent=t.text;
+      d.querySelector('.del').onclick=function(e){e.stopPropagation();
+        state.tasks=state.tasks.filter(function(x){return x.id!==t.id;});save();render();};
+      d.onclick=function(){toggle(t.id);};
+      list.appendChild(d);
+    });
+  }
+  var dc=doneCount(), goal=state.goal;
+  var sr=document.getElementById('starsRow');sr.innerHTML='';
+  for(var i=0;i<goal;i++){var s=document.createElement('div');s.className='st'+(i<dc?' on':'');s.textContent='⭐';sr.appendChild(s);}
+  document.getElementById('barFill').style.width=Math.min(100,goal?dc/goal*100:0)+'%';
+  var tr=document.getElementById('trophy');
+  if(dc>=goal&&goal>0){tr.classList.add('win');}else{tr.classList.remove('win');}
+  renderWeek();
+  save();
+}
+var DOW=['CN','T2','T3','T4','T5','T6','T7'];
+function renderWeek(){
+  var box=document.getElementById('days');box.innerHTML='';
+  var now=new Date(); var dow=now.getDay();
+  var monOffset=(dow===0?-6:1-dow);
+  for(var i=0;i<7;i++){
+    var d=new Date(now);d.setDate(now.getDate()+monOffset+i);
+    var key=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+    var isToday=key===today();
+    var won=(state.stickers&&state.stickers[key])||(isToday&&doneCount()>=state.goal&&state.goal>0);
+    var el=document.createElement('div');el.className='day'+(won?' win':'')+(isToday?' today':'');
+    el.innerHTML='<div class="dot">'+(won?'🌟':'·')+'</div><div class="lbl">'+DOW[d.getDay()]+'</div>';
+    box.appendChild(el);
+  }
+}
+function toggle(id){
+  var t=state.tasks.find(function(x){return x.id===id;});if(!t)return;
+  t.done=!t.done; save();
+  if(t.done){tap();confetti(18);}
+  render();
+  if(t.done && doneCount()===state.goal && state.goal>0){
+    state.stickers=state.stickers||{}; state.stickers[today()]=true; save();
+    setTimeout(function(){celebrate('🏆','Hoàn thành mục tiêu hôm nay!');},250);
+    renderWeek();
+  }
+}
+
+/* ===== ADD TASK ===== */
+var PRESETS=[['🦷','Đánh răng'],['📖','Đọc sách'],['🏃','Tập thể dục'],['🛏️','Dọn giường'],
+  ['🥗','Ăn rau'],['💧','Uống nước'],['🎨','Vẽ tranh'],['🎹','Tập đàn'],['🧸','Dọn đồ chơi'],
+  ['🐶','Cho thú cưng ăn'],['🙏','Cảm ơn ba mẹ'],['😴','Ngủ đúng giờ']];
+var EMOJIS=['😀','🦷','📚','📖','🏃','🎨','🎹','⚽','🧸','🌱','🐶','🐱','🥗','💧','🛏️','🧹','🎵','⭐','❤️','🚀'];
+var pickedEmoji='😀';
+function buildModal(){
+  var p=document.getElementById('preset');p.innerHTML='';
+  PRESETS.forEach(function(it){var b=document.createElement('button');b.className='chip';
+    b.innerHTML='<span style="font-size:20px">'+it[0]+'</span> '+it[1];
+    b.onclick=function(){addTask(it[0],it[1]);closeAdd();celebrate('✅','Đã thêm việc!');};p.appendChild(b);});
+  var e=document.getElementById('emojis');e.innerHTML='';
+  EMOJIS.forEach(function(em){var b=document.createElement('button');b.className='emo-pick'+(em===pickedEmoji?' on':'');
+    b.textContent=em;b.onclick=function(){pickedEmoji=em;buildModal();};e.appendChild(b);});
+}
+function addTask(emoji,text){ state.tasks.push({id:Date.now()+Math.floor(Math.random()*999),emoji:emoji,text:text,done:false});save();render(); }
+function openAdd(){pickedEmoji='😀';document.getElementById('taskInput').value='';document.getElementById('taskInput').style.borderColor='';buildModal();document.getElementById('overlay').classList.add('show');}
+function closeAdd(){document.getElementById('overlay').classList.remove('show');}
+document.getElementById('openAdd').onclick=function(){tap();openAdd();};
+document.getElementById('cancelAdd').onclick=closeAdd;
+document.getElementById('overlay').onclick=function(e){if(e.target===this)closeAdd();};
+document.getElementById('confirmAdd').onclick=function(){
+  var v=document.getElementById('taskInput').value.trim();
+  if(!v){document.getElementById('taskInput').style.borderColor='var(--coral)';return;}
+  addTask(pickedEmoji,v);closeAdd();celebrate('✅','Đã thêm việc!');
 };
+document.getElementById('taskInput').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('confirmAdd').click();});
 
-const weekData=[2.5,4,3.5,5,3,4.5,3.3];
-const weekDays=['M','T','W','T','F','S','S'];
+/* ===== GOAL / NAME / SOUND / MASCOT ===== */
+document.getElementById('goalPlus').onclick=function(){if(state.goal<8){state.goal++;tap();render();}};
+document.getElementById('goalMinus').onclick=function(){if(state.goal>1){state.goal--;tap();render();}};
+document.getElementById('nameBtn').onclick=function(){
+  var n=prompt('Tên của bé là gì?',state.name);if(n&&n.trim()){state.name=n.trim().slice(0,16);save();render();}
+};
+document.getElementById('soundBtn').onclick=function(){state.sound=!state.sound;save();render();if(state.sound)tap();};
+document.getElementById('mascot').onclick=function(){var c=['Bé giỏi lắm! 🌟','Cố lên nha! 💪','Mình tin bé làm được! ✨','Yêu bé nhiều! 💖'];
+  celebrate('⭐',c[Math.floor(Math.random()*c.length)]);};
 
-let currentFilter='all';
-let miniSecs=25*60, miniRunning=false, miniInterval=null;
-let focusSecs=25*60, focusRunning=false, focusInterval=null;
-let pomoFocus=25, pomoBreak=5, pomoSecs=25*60, pomoRunning=false, pomoInterval=null;
-let pomoPhase='focus', pomoSessionCount=0, pomoBreakCount=0, pomoTotalFocusMin=0;
-let energy=75;
-
-function nav(page,el){
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  if(el)el.classList.add('active');
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const pg=document.getElementById('page-'+page);
-  if(pg)pg.classList.add('active');
-  const titles={dashboard:'Good morning, Kate 👋',focus:'Focus Mode',tasks:'My Tasks',kanban:'Kanban Board',pomodoro:'Pomodoro Timer',stats:'Statistics',projects:'Projects'};
-  document.getElementById('pageTitle').textContent=titles[page]||page;
-  if(page==='tasks')renderTasks('all');
-  if(page==='kanban')renderKanban();
-  if(page==='stats')renderStatsChart();
-  if(page==='dashboard')renderWeekChart();
+/* ===== FOCUS TIMER ===== */
+var C=552.9, dur=5*60, left=dur, running=false, ti=null;
+function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+function drawTimer(){
+  document.getElementById('timerTxt').textContent=fmt(left);
+  var prog=dur?left/dur:0;document.getElementById('ring').style.strokeDashoffset=C*(1-prog);
+  var ch=document.getElementById('timerCh');
+  ch.textContent=!running?'🚀':(prog>.66?'🚀':prog>.33?'🌟':'🎯');
 }
+function tick(){ if(left<=0){stopTimer(true);return;} left--;drawTimer(); }
+function startTimer(){ if(running)return;running=true;document.getElementById('timerBtn').textContent='⏸️ Tạm nghỉ';ti=setInterval(tick,1000); }
+function pauseTimer(){running=false;clearInterval(ti);document.getElementById('timerBtn').textContent='▶️ Tiếp tục';drawTimer();}
+function stopTimer(finished){running=false;clearInterval(ti);
+  if(finished){left=0;drawTimer();celebrate('🎉','Bé tập trung rất giỏi!');
+    document.getElementById('timerBtn').textContent='▶️ Bắt đầu';left=dur;setTimeout(drawTimer,1600);} }
+document.getElementById('timerBtn').onclick=function(){tap();if(running)pauseTimer();else startTimer();};
+document.querySelectorAll('.dur').forEach(function(b){
+  b.onclick=function(){document.querySelectorAll('.dur').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');dur=parseInt(b.dataset.min)*60;left=dur;pauseTimer();
+    document.getElementById('timerBtn').textContent='▶️ Bắt đầu';drawTimer();};
+});
 
-function renderWeekChart(){
-  const max=Math.max(...weekData);
-  const c=document.getElementById('weekChart');
-  const l=document.getElementById('weekLabels');
-  if(!c)return;
-  c.innerHTML='';l.innerHTML='';
-  weekData.forEach((v,i)=>{
-    const pct=Math.round(v/max*100);
-    c.innerHTML+=`<div class="bar-wrap"><div class="bar" style="height:${pct}%" title="${v}h" onclick=""></div></div>`;
-    l.innerHTML+=`<div class="bar-wrap"><div class="bar-label">${weekDays[i]}</div></div>`;
-  });
-}
-
-function renderStatsChart(){
-  const data=[3.5,4.8,2.5,5.5,2,3,4.2];
-  const max=Math.max(...data);
-  const c=document.getElementById('statsChart');
-  const l=document.getElementById('statsLabels');
-  if(!c)return;
-  c.innerHTML='';l.innerHTML='';
-  data.forEach((v,i)=>{
-    const pct=Math.round(v/max*100);
-    c.innerHTML+=`<div class="bar-wrap"><div class="bar" style="height:${pct}%;background:${i===3?'var(--accent)':'var(--accent3)'}" title="${v}h"></div></div>`;
-    l.innerHTML+=`<div class="bar-wrap"><div class="bar-label">${weekDays[i]}</div></div>`;
-  });
-}
-
-function renderTasks(filter){
-  currentFilter=filter;
-  const search=document.getElementById('taskSearch')?document.getElementById('taskSearch').value.toLowerCase():'';
-  const tl=document.getElementById('taskList');
-  if(!tl)return;
-  let filtered=tasks.filter(t=>{
-    const matchF=filter==='all'||t.status===filter;
-    const matchS=t.title.toLowerCase().includes(search)||t.project.toLowerCase().includes(search);
-    return matchF&&matchS;
-  }).sort((a,b)=>b.score-a.score);
-  tl.innerHTML=filtered.map(t=>`
-    <div class="task-card${t.id===1?' recommended':''}">
-      <div class="task-title">${t.title}${t.id===1?' <span class="badge badge-purple pulse" style="font-size:10px">Recommended</span>':''}</div>
-      <div class="task-meta">
-        <span class="badge badge-${t.priority==='high'?'red':t.priority==='medium'?'amber':'blue'}">${t.priority}</span>
-        <span class="badge badge-purple">${t.project}</span>
-        <span style="font-size:11px;color:var(--text3)"><i class="ti ti-clock" aria-hidden="true"></i> ${t.est}m</span>
-        ${t.tags.map(tag=>`<span class="tag">${tag}</span>`).join('')}
-        <span class="task-score" style="margin-left:auto">${t.score}/100</span>
-      </div>
-      <div class="score-bar"><div class="score-fill" style="width:${t.score}%"></div></div>
-    </div>`).join('');
-}
-
-function filterTasks(filter,el){
-  document.querySelectorAll('[id^=f]').forEach(b=>{b.style.background='';b.style.borderColor='';b.style.color=''});
-  if(el){el.style.background='var(--accent3)';el.style.borderColor='var(--accent)';el.style.color='var(--accent2)'}
-  renderTasks(filter);
-}
-
-function searchTasks(v){renderTasks(currentFilter);}
-
-function renderKanban(){
-  const kb=document.getElementById('kanbanBoard');
-  if(!kb)return;
-  const colors={'Backlog':'text3','Todo':'text2','Doing':'accent2','Review':'amber','Done':'green'};
-  kb.innerHTML=Object.entries(kanbanCols).map(([col,items])=>`
-    <div class="kanban-col">
-      <div class="kanban-col-title" style="color:var(--${colors[col]||'text3'})">${col} <span>${items.length}</span></div>
-      ${items.map(item=>`<div class="kanban-card"><div class="kanban-card-title">${item}</div><div class="task-meta" style="margin-top:4px"><span class="tag">VCCSTK</span></div></div>`).join('')}
-    </div>`).join('');
-}
-
-function fmtTime(s){const m=Math.floor(s/60);const sec=s%60;return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`}
-
-function toggleMiniTimer(){
-  if(miniRunning){clearInterval(miniInterval);miniRunning=false;document.getElementById('miniPlayIco').className='ti ti-player-play';}
-  else{miniRunning=true;document.getElementById('miniPlayIco').className='ti ti-player-pause';miniInterval=setInterval(()=>{miniSecs--;if(miniSecs<=0){miniSecs=0;clearInterval(miniInterval);miniRunning=false;document.getElementById('miniPlayIco').className='ti ti-player-play';}document.getElementById('miniTimerDisp').textContent=fmtTime(miniSecs);},1000);}
-}
-function resetMiniTimer(){clearInterval(miniInterval);miniRunning=false;miniSecs=25*60;document.getElementById('miniTimerDisp').textContent='25:00';document.getElementById('miniPlayIco').className='ti ti-player-play';}
-
-function toggleFocusTimer(){
-  if(focusRunning){clearInterval(focusInterval);focusRunning=false;document.getElementById('focusPlayIco').className='ti ti-player-play';document.getElementById('focusPlayBtn').innerHTML='<i class="ti ti-player-play" id="focusPlayIco"></i> Resume';}
-  else{focusRunning=true;document.getElementById('focusPlayBtn').innerHTML='<i class="ti ti-player-pause" id="focusPlayIco"></i> Pause';focusInterval=setInterval(()=>{focusSecs--;if(focusSecs<=0){focusSecs=0;clearInterval(focusInterval);focusRunning=false;}document.getElementById('focusTimerDisp').textContent=fmtTime(focusSecs);},1000);}
-}
-function resetFocusTimer(){clearInterval(focusInterval);focusRunning=false;focusSecs=25*60;document.getElementById('focusTimerDisp').textContent='25:00';document.getElementById('focusPlayBtn').innerHTML='<i class="ti ti-player-play" id="focusPlayIco"></i> Start';}
-function completeTask(){alert('🎉 Task completed! Great work, Kate. Moving to next recommended task.');}
-
-function toggleCheck(i){
-  const cb=document.getElementById('cb'+i);const ct=document.getElementById('ct'+i);
-  cb.classList.toggle('checked');ct.classList.toggle('done');
-}
-
-function setPomoMode(f,b,el){
-  clearInterval(pomoInterval);pomoRunning=false;
-  pomoFocus=f;pomoBreak=b;pomoSecs=f*60;pomoPhase='focus';
-  document.querySelectorAll('.pomo-mode-btn').forEach(x=>x.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('pomoTimerDisp').textContent=fmtTime(pomoSecs);
-  document.getElementById('pomoPlayIco').className='ti ti-player-play';
-  document.getElementById('pomoPlayBtn').childNodes[0].after(' Start');
-  updatePomoArc();
-}
-
-function togglePomo(){
-  if(pomoRunning){clearInterval(pomoInterval);pomoRunning=false;document.getElementById('pomoPlayIco').className='ti ti-player-play';}
-  else{pomoRunning=true;document.getElementById('pomoPlayIco').className='ti ti-player-pause';pomoInterval=setInterval(()=>{pomoSecs--;updatePomoArc();if(pomoSecs<=0){if(pomoPhase==='focus'){pomoSessionCount++;pomoTotalFocusMin+=pomoFocus;pomoPhase='break';pomoSecs=pomoBreak*60;document.getElementById('pomoSession').textContent=pomoSessionCount+1;}else{pomoBreakCount++;pomoPhase='focus';pomoSecs=pomoFocus*60;}document.getElementById('pomoSessions').textContent=pomoSessionCount;document.getElementById('pomoTime').textContent=pomoTotalFocusMin+'m';document.getElementById('pomoBreaks').textContent=pomoBreakCount;}document.getElementById('pomoTimerDisp').textContent=fmtTime(pomoSecs);},1000);}
-}
-function resetPomo(){clearInterval(pomoInterval);pomoRunning=false;pomoSecs=pomoFocus*60;pomoPhase='focus';document.getElementById('pomoTimerDisp').textContent=fmtTime(pomoSecs);document.getElementById('pomoPlayIco').className='ti ti-player-play';updatePomoArc();}
-function skipPomo(){pomoSecs=1;}
-function updatePomoArc(){const total=(pomoPhase==='focus'?pomoFocus:pomoBreak)*60;const pct=pomoSecs/total;const circ=534;document.getElementById('pomoArc').setAttribute('stroke-dashoffset',Math.round(circ*(1-pct)));document.getElementById('pomoArc').setAttribute('stroke',pomoPhase==='focus'?'#6366f1':'#10b981');}
-
-function setEnergy(val,label){
-  energy=val;
-  document.getElementById('energyFill').style.width=val+'%';
-  document.getElementById('energyPct').textContent=val+'%';
-  document.querySelectorAll('.energy-btn').forEach(b=>b.classList.remove('sel'));
-  event.target.classList.add('sel');
-}
-
-function enterFocusMode(){nav('focus',null);document.querySelectorAll('.nav-item').forEach((n,i)=>{if(i===1)n.classList.add('active');else n.classList.remove('active');});}
-
-function skipTask(){const names=['Review TC-035 to TC-050','Update POM locators for OTP screen'];const rand=names[Math.floor(Math.random()*names.length)];document.querySelector('.card.rec-glow .task-title')||null;}
-
-function openQC(){document.getElementById('qcPopup').classList.add('open');setTimeout(()=>document.getElementById('qcInput').focus(),50);}
-function closeQC(){document.getElementById('qcPopup').classList.remove('open');document.getElementById('qcInput').value='';document.getElementById('qcFeedback').style.display='none';}
-function submitQC(e){if(e.key==='Enter'&&document.getElementById('qcInput').value.trim()){document.getElementById('qcFeedback').style.display='block';setTimeout(()=>closeQC(),1200);}}
-
-renderWeekChart();
-renderTasks('all');
+/* ===== GO ===== */
+render(); drawTimer();
 </script>
 </body>
 </html>
