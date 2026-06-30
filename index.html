@@ -10,34 +10,23 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg1:#fff6e0; --bg2:#ffe3ec; --bg3:#dff6ff;
-  --card:#ffffff; --ink:#3a2a5d; --ink2:#7b6ca6;
-  --yellow:#ffc83d; --orange:#ff8a5c; --coral:#ff6b8a;
-  --mint:#3ddc97; --sky:#4cc3ff; --purple:#8b5cf6; --pink:#ff7eb6;
-  --shadow:0 8px 0 rgba(0,0,0,.08); --shadow2:0 12px 30px rgba(123,108,166,.25);
-  --r:22px; --r2:30px;
+  --bg1:#fff6e0;--bg2:#ffe3ec;--bg3:#dff6ff;--card:#fff;--ink:#3a2a5d;--ink2:#7b6ca6;
+  --yellow:#ffc83d;--orange:#ff8a5c;--coral:#ff6b8a;--mint:#3ddc97;--sky:#4cc3ff;--purple:#8b5cf6;--pink:#ff7eb6;
+  --shadow:0 8px 0 rgba(0,0,0,.08);--shadow2:0 12px 30px rgba(123,108,166,.25);--r:22px;--r2:30px;
 }
-body{
-  font-family:'Fredoka','Baloo 2','Trebuchet MS',system-ui,sans-serif;
-  color:var(--ink);
-  background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));
-  background-attachment:fixed; min-height:100vh; padding:14px; overflow-x:hidden;
-  font-size:18px; font-weight:500;
-}
+body{font-family:'Fredoka','Baloo 2','Trebuchet MS',system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));background-attachment:fixed;
+  min-height:100vh;padding:14px;overflow-x:hidden;font-size:18px;font-weight:500}
 .wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding-bottom:40px}
-.top{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:var(--r2);
-  padding:14px 16px;box-shadow:var(--shadow2);position:relative}
+.top{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:var(--r2);padding:14px 16px;box-shadow:var(--shadow2)}
 .mascot{font-size:46px;line-height:1;animation:bob 2.4s ease-in-out infinite;cursor:pointer}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-7px) rotate(4deg)}}
-.hello{flex:1;min-width:0}
-.hello .hi{font-size:14px;color:var(--ink2);font-weight:600}
+.hello{flex:1;min-width:0}.hello .hi{font-size:14px;color:var(--ink2);font-weight:600}
 .hello .nm{font-size:24px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer}
 .hello .nm .pen{font-size:15px;opacity:.5}
-.sound{width:48px;height:48px;border:none;border-radius:50%;background:var(--bg1);font-size:22px;
-  cursor:pointer;box-shadow:var(--shadow);transition:transform .1s}
+.sound{width:48px;height:48px;border:none;border-radius:50%;background:var(--bg1);font-size:22px;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s}
 .sound:active{transform:scale(.9)}
-.reward{background:linear-gradient(135deg,#fff,#fff8ec);border-radius:var(--r2);padding:18px;
-  box-shadow:var(--shadow2);border:3px solid #ffe6a6;text-align:center}
+.reward{background:linear-gradient(135deg,#fff,#fff8ec);border-radius:var(--r2);padding:18px;box-shadow:var(--shadow2);border:3px solid #ffe6a6;text-align:center}
 .reward .ttl{font-size:16px;color:var(--ink2);font-weight:600;margin-bottom:4px}
 .trophy{font-size:60px;line-height:1;transition:transform .3s;filter:grayscale(.7) opacity(.45)}
 .trophy.win{filter:none;animation:pop .5s}
@@ -45,34 +34,25 @@ body{
 .starsrow .st{font-size:34px;filter:grayscale(1) opacity(.35);transition:all .3s}
 .starsrow .st.on{filter:none;animation:pop .4s}
 .bar{height:16px;background:#ffe6a6;border-radius:99px;overflow:hidden;margin-top:8px}
-.bar>i{display:block;height:100%;width:0;border-radius:99px;
-  background:linear-gradient(90deg,var(--yellow),var(--mint));transition:width .5s cubic-bezier(.5,1.6,.4,1)}
+.bar>i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--yellow),var(--mint));transition:width .5s cubic-bezier(.5,1.6,.4,1)}
 .goalrow{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;font-size:14px;color:var(--ink2)}
-.goalrow button{width:34px;height:34px;border:none;border-radius:50%;background:var(--bg2);font-size:20px;
-  font-weight:700;cursor:pointer;color:var(--coral);box-shadow:var(--shadow)}
+.goalrow button{width:34px;height:34px;border:none;border-radius:50%;background:var(--bg2);font-size:20px;font-weight:700;cursor:pointer;color:var(--coral);box-shadow:var(--shadow)}
 .goalrow button:active{transform:scale(.9)}
 .sec-h{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:700;margin:4px 4px -2px}
 .sec-h .e{font-size:24px}
 .tasks{display:flex;flex-direction:column;gap:12px}
-.task{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:var(--r);
-  padding:14px 16px;box-shadow:var(--shadow);border:3px solid transparent;cursor:pointer;
-  transition:transform .12s, border-color .2s, opacity .3s}
+.task{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);border:3px solid transparent;cursor:pointer;transition:transform .12s,border-color .2s,opacity .3s}
 .task:active{transform:scale(.98)}
 .task .emo{font-size:34px;line-height:1;width:42px;text-align:center}
 .task .tx{flex:1;font-size:19px;font-weight:600}
-.task .chk{width:40px;height:40px;border-radius:50%;border:4px solid #e3ddf3;display:flex;
-  align-items:center;justify-content:center;font-size:22px;color:#fff;transition:all .2s}
+.task .chk{width:40px;height:40px;border-radius:50%;border:4px solid #e3ddf3;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;transition:all .2s}
 .task.done{border-color:var(--mint);background:#f2fff9}
 .task.done .tx{text-decoration:line-through;color:var(--ink2)}
 .task.done .chk{background:var(--mint);border-color:var(--mint);animation:pop .4s}
-.task .del{font-size:20px;opacity:.3;padding:4px}
-.task .del:active{opacity:.8}
-.empty{text-align:center;color:var(--ink2);background:var(--card);border-radius:var(--r);
-  padding:24px;box-shadow:var(--shadow);font-weight:600}
+.task .del{font-size:20px;opacity:.3;padding:4px}.task .del:active{opacity:.8}
+.empty{text-align:center;color:var(--ink2);background:var(--card);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);font-weight:600}
 .empty .big{font-size:40px;display:block;margin-bottom:6px}
-.bigbtn{border:none;border-radius:var(--r2);padding:18px;font-size:22px;font-weight:700;color:#fff;
-  font-family:inherit;cursor:pointer;box-shadow:0 7px 0 rgba(0,0,0,.13);transition:transform .1s, box-shadow .1s;
-  display:flex;align-items:center;justify-content:center;gap:10px}
+.bigbtn{border:none;border-radius:var(--r2);padding:18px;font-size:22px;font-weight:700;color:#fff;font-family:inherit;cursor:pointer;box-shadow:0 7px 0 rgba(0,0,0,.13);transition:transform .1s,box-shadow .1s;display:flex;align-items:center;justify-content:center;gap:10px}
 .bigbtn:active{transform:translateY(5px);box-shadow:0 2px 0 rgba(0,0,0,.13)}
 .bigbtn.add{background:linear-gradient(135deg,var(--coral),var(--orange))}
 .bigbtn.go{background:linear-gradient(135deg,var(--purple),var(--sky))}
@@ -84,46 +64,67 @@ body{
 .ring-wrap .face .ch{font-size:46px;line-height:1}
 .ring-wrap .face .tm{font-size:34px;font-weight:700;margin-top:2px}
 .durs{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
-.dur{border:none;border-radius:16px;padding:10px 16px;font-size:16px;font-weight:700;font-family:inherit;
-  background:var(--bg1);color:var(--ink2);cursor:pointer;box-shadow:var(--shadow)}
-.dur.on{background:var(--purple);color:#fff}
-.dur:active{transform:scale(.94)}
+.dur{border:none;border-radius:16px;padding:10px 16px;font-size:16px;font-weight:700;font-family:inherit;background:var(--bg1);color:var(--ink2);cursor:pointer;box-shadow:var(--shadow)}
+.dur.on{background:var(--purple);color:#fff}.dur:active{transform:scale(.94)}
 .tbtns{display:flex;gap:10px}
 .week{background:var(--card);border-radius:var(--r2);padding:16px;box-shadow:var(--shadow2)}
 .days{display:flex;justify-content:space-between;gap:4px;margin-top:10px}
 .day{flex:1;text-align:center}
-.day .dot{width:42px;height:42px;margin:0 auto 4px;border-radius:50%;background:var(--bg1);
-  display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:inset 0 0 0 3px #f0ebfa}
+.day .dot{width:42px;height:42px;margin:0 auto 4px;border-radius:50%;background:var(--bg1);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:inset 0 0 0 3px #f0ebfa}
 .day.win .dot{background:linear-gradient(135deg,var(--yellow),var(--orange));box-shadow:none;animation:pop .4s}
 .day.today .lbl{color:var(--coral);font-weight:700}
 .day .lbl{font-size:13px;color:var(--ink2);font-weight:600}
 .foot{text-align:center;color:var(--ink2);font-weight:600;font-size:15px;padding:6px}
-.overlay{position:fixed;inset:0;background:rgba(58,42,93,.45);backdrop-filter:blur(3px);
-  display:none;align-items:flex-end;justify-content:center;z-index:50}
+/* ROBOT */
+.robot{background:linear-gradient(135deg,#eef4ff,#f6efff);border-radius:var(--r2);padding:16px;box-shadow:var(--shadow2);border:3px solid #dfe6ff}
+.robot-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.robot-av{font-size:40px;animation:bob 3s ease-in-out infinite}
+.robot-head .nmx{font-weight:700;font-size:18px}.robot-head .sub{font-size:13px;color:var(--ink2)}
+.chat{display:flex;flex-direction:column;gap:8px;max-height:240px;overflow-y:auto;padding:4px 2px;margin-bottom:10px}
+.bub{max-width:84%;padding:10px 14px;border-radius:18px;font-size:16px;font-weight:600;line-height:1.35;animation:pop .3s}
+.bub.bot{background:#fff;color:var(--ink);align-self:flex-start;border-bottom-left-radius:6px;box-shadow:var(--shadow)}
+.bub.me{background:linear-gradient(135deg,var(--purple),var(--sky));color:#fff;align-self:flex-end;border-bottom-right-radius:6px}
+.bub.typing{display:flex;gap:4px}.bub.typing i{width:7px;height:7px;background:var(--ink2);border-radius:50%;animation:blink 1s infinite}
+.bub.typing i:nth-child(2){animation-delay:.2s}.bub.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.rchip{border:none;border-radius:16px;padding:9px 12px;font-size:14px;font-weight:700;font-family:inherit;background:#fff;color:var(--purple);cursor:pointer;box-shadow:var(--shadow)}
+.rchip:active{transform:scale(.94)}
+.rinput-row{display:flex;gap:8px}
+.rinput{flex:1;border:3px solid #dfe6ff;border-radius:16px;padding:12px 14px;font-size:16px;font-family:inherit;font-weight:600;color:var(--ink);outline:none;min-width:0}
+.rinput:focus{border-color:var(--purple)}
+.rsend{border:none;border-radius:16px;background:linear-gradient(135deg,var(--purple),var(--sky));color:#fff;font-size:20px;width:54px;cursor:pointer;box-shadow:var(--shadow)}
+.rsend:active{transform:scale(.92)}
+/* EVAL */
+.evalc{background:var(--card);border-radius:var(--r2);padding:18px;box-shadow:var(--shadow2);text-align:center}
+.evalbig{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px 0}
+.evalbig .num{font-size:48px;font-weight:700;color:var(--purple);line-height:1}
+.evalbig .num small{font-size:18px;color:var(--ink2)}
+.evalbig .lab{font-size:18px;font-weight:700}
+.ebars{display:flex;justify-content:space-between;gap:6px;align-items:flex-end;height:90px;margin-top:14px}
+.ebar{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
+.ebar-track{flex:1;width:100%;background:var(--bg1);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;box-shadow:inset 0 0 0 2px #f0ebfa}
+.ebar-track>i{width:100%;border-radius:8px;background:linear-gradient(180deg,var(--mint),var(--sky));transition:height .5s}
+.ebar span{font-size:11px;color:var(--ink2);font-weight:600}
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(58,42,93,.45);backdrop-filter:blur(3px);display:none;align-items:flex-end;justify-content:center;z-index:50}
 .overlay.show{display:flex;animation:fade .2s}
-.sheet{background:var(--card);width:100%;max-width:520px;border-radius:var(--r2) var(--r2) 0 0;
-  padding:22px 20px 30px;box-shadow:0 -10px 40px rgba(0,0,0,.2);animation:up .25s cubic-bezier(.4,1.4,.5,1)}
+.sheet{background:var(--card);width:100%;max-width:520px;border-radius:var(--r2) var(--r2) 0 0;padding:22px 20px 30px;box-shadow:0 -10px 40px rgba(0,0,0,.2);animation:up .25s cubic-bezier(.4,1.4,.5,1)}
 .sheet h3{font-size:22px;margin-bottom:14px;text-align:center}
 .preset{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.chip{border:none;border-radius:16px;padding:10px 12px;font-size:15px;font-weight:600;font-family:inherit;
-  background:var(--bg1);cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow)}
+.chip{border:none;border-radius:16px;padding:10px 12px;font-size:15px;font-weight:600;font-family:inherit;background:var(--bg1);cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow)}
 .chip:active{transform:scale(.94)}
 .sep{text-align:center;color:var(--ink2);font-size:14px;margin:6px 0 10px}
 .emojis{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px}
-.emo-pick{width:46px;height:46px;border:3px solid transparent;border-radius:14px;background:var(--bg1);
-  font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.emo-pick{width:46px;height:46px;border:3px solid transparent;border-radius:14px;background:var(--bg1);font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .emo-pick.on{border-color:var(--purple);background:#efe9ff;transform:scale(1.05)}
-.tinput{width:100%;border:3px solid #e3ddf3;border-radius:16px;padding:14px 16px;font-size:18px;
-  font-family:inherit;font-weight:600;color:var(--ink);margin-bottom:14px;outline:none}
+.tinput{width:100%;border:3px solid #e3ddf3;border-radius:16px;padding:14px 16px;font-size:18px;font-family:inherit;font-weight:600;color:var(--ink);margin-bottom:14px;outline:none}
 .tinput:focus{border-color:var(--purple)}
-.modal-btns{display:flex;gap:10px}
-.modal-btns .ghost{background:var(--bg1);color:var(--ink2);box-shadow:var(--shadow)}
+.modal-btns{display:flex;gap:10px}.modal-btns .ghost{background:var(--bg1);color:var(--ink2);box-shadow:var(--shadow)}
 .celebrate{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:60;pointer-events:none}
 .celebrate.show{display:flex}
-.celebrate .msg{background:#fff;border-radius:var(--r2);padding:26px 34px;box-shadow:var(--shadow2);
-  text-align:center;animation:pop .5s;border:4px solid var(--yellow)}
-.celebrate .msg .b{font-size:64px}
-.celebrate .msg .t{font-size:24px;font-weight:700;margin-top:6px}
+.celebrate .msg{background:#fff;border-radius:var(--r2);padding:26px 34px;box-shadow:var(--shadow2);text-align:center;animation:pop .5s;border:4px solid var(--yellow)}
+.celebrate .msg .b{font-size:64px}.celebrate .msg .t{font-size:24px;font-weight:700;margin-top:6px}
 .confetti{position:fixed;top:-20px;width:12px;height:18px;z-index:55;border-radius:3px;pointer-events:none}
 @keyframes pop{0%{transform:scale(.4)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -139,7 +140,7 @@ body{
       <div class="hi">Chào buổi sáng nắng đẹp!</div>
       <div class="nm" id="nameBtn"><span id="kidName">bé</span> 👋 <span class="pen">✏️</span></div>
     </div>
-    <button class="sound" id="soundBtn" title="Bật/tắt âm thanh">🔊</button>
+    <button class="sound" id="soundBtn">🔊</button>
   </div>
 
   <div class="reward">
@@ -147,11 +148,25 @@ body{
     <div class="trophy" id="trophy">🏆</div>
     <div class="starsrow" id="starsRow"></div>
     <div class="bar"><i id="barFill"></i></div>
-    <div class="goalrow">
-      <span>Mục tiêu:</span>
-      <button id="goalMinus">–</button>
-      <b><span id="goalNum">3</span> ⭐</b>
-      <button id="goalPlus">+</button>
+    <div class="goalrow"><span>Mục tiêu:</span><button id="goalMinus">–</button><b><span id="goalNum">3</span> ⭐</b><button id="goalPlus">+</button></div>
+  </div>
+
+  <!-- ROBOT -->
+  <div class="robot">
+    <div class="robot-head">
+      <div class="robot-av">🤖</div>
+      <div><div class="nmx">Robot Tích Tắc</div><div class="sub">Người bạn nhắc nhở của bé</div></div>
+    </div>
+    <div class="chat" id="chat"></div>
+    <div class="chips">
+      <button class="rchip" data-act="eval">Hôm nay con sao? 📊</button>
+      <button class="rchip" data-act="tip">Khuyên con đi 💡</button>
+      <button class="rchip" data-act="plan">Lên kế hoạch mai 📝</button>
+      <button class="rchip" data-act="cheer">Cổ vũ con! 🎉</button>
+    </div>
+    <div class="rinput-row">
+      <input class="rinput" id="rinput" placeholder="Nói với robot..." maxlength="60">
+      <button class="rsend" id="rsend">➤</button>
     </div>
   </div>
 
@@ -169,17 +184,24 @@ body{
     <div class="ring-wrap">
       <svg width="200" height="200">
         <circle cx="100" cy="100" r="88" fill="none" stroke="#f0ebfa" stroke-width="16"/>
-        <circle id="ring" cx="100" cy="100" r="88" fill="none" stroke="url(#g)" stroke-width="16"
-                stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="0"/>
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#4cc3ff"/>
-        </linearGradient></defs>
+        <circle id="ring" cx="100" cy="100" r="88" fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="0"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#4cc3ff"/></linearGradient></defs>
       </svg>
       <div class="face"><div class="ch" id="timerCh">🚀</div><div class="tm" id="timerTxt">05:00</div></div>
     </div>
-    <div class="tbtns">
-      <button class="bigbtn go full" id="timerBtn">▶️ Bắt đầu</button>
-    </div>
+    <div class="tbtns"><button class="bigbtn go full" id="timerBtn">▶️ Bắt đầu</button></div>
+  </div>
+
+  <!-- TOMORROW -->
+  <div class="sec-h"><span class="e">🌙</span> Kế hoạch ngày mai</div>
+  <div class="tasks" id="tmrList"></div>
+  <button class="bigbtn go full" id="openAddTmr">➕ Thêm việc cho ngày mai</button>
+
+  <!-- EVAL -->
+  <div class="sec-h"><span class="e">📈</span> Bảng chăm chỉ của bé</div>
+  <div class="evalc">
+    <div class="evalbig"><div class="num"><span id="evalScore">0</span><small>/100</small></div><div class="lab" id="evalLabel">Bắt đầu nào!</div></div>
+    <div class="ebars" id="evalBars"></div>
   </div>
 
   <div class="week">
@@ -192,186 +214,220 @@ body{
 
 <div class="overlay" id="overlay">
   <div class="sheet">
-    <h3>Bé muốn thêm việc gì? 🌈</h3>
+    <h3 id="sheetTitle">Bé muốn thêm việc gì? 🌈</h3>
     <div class="preset" id="preset"></div>
     <div class="sep">— hoặc tự tạo việc mới —</div>
     <div class="emojis" id="emojis"></div>
     <input class="tinput" id="taskInput" placeholder="Ví dụ: Tưới cây 🌱" maxlength="40">
-    <div class="modal-btns">
-      <button class="bigbtn ghost full" id="cancelAdd">Đóng lại</button>
-      <button class="bigbtn add full" id="confirmAdd">Thêm 🎉</button>
-    </div>
+    <div class="modal-btns"><button class="bigbtn ghost full" id="cancelAdd">Đóng lại</button><button class="bigbtn add full" id="confirmAdd">Thêm 🎉</button></div>
   </div>
 </div>
 
 <div class="celebrate" id="celebrate"><div class="msg"><div class="b" id="celeB">🎉</div><div class="t" id="celeT">Giỏi quá!</div></div></div>
 
 <script>
-/* ===== STORAGE: localStorage + fallback an toàn ===== */
-var KEY='kidfocus_v1', mem=null;
-function load(){ try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem;} }
-function save(){ try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){mem=state;} }
+/* ====== CẤU HÌNH AI THẬT (tùy chọn) ======
+   Để trống = dùng robot offline an toàn. Khi có proxy backend giữ API key,
+   dán URL vào đây để bật AI thật (xem file AI_ROBOT_UPGRADE.md). */
+var AI_ENDPOINT = "";
+
+/* ====== STORAGE ====== */
+var KEY='kidfocus_v2', mem=null;
+function load(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem;}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){mem=state;}}
 function today(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
 
-var DEFAULT={ name:'bé', sound:true, goal:3, tasks:[
-  {id:1,emoji:'🦷',text:'Đánh răng',done:false},
-  {id:2,emoji:'📚',text:'Học bài',done:false},
-  {id:3,emoji:'🧸',text:'Dọn đồ chơi',done:false}
-], lastDate:today(), stickers:{} };
-
+var DEFAULT={name:'bé',sound:true,goal:3,
+  tasks:[{id:1,emoji:'🦷',text:'Đánh răng',done:false},{id:2,emoji:'📚',text:'Học bài',done:false},{id:3,emoji:'🧸',text:'Dọn đồ chơi',done:false}],
+  tomorrow:[], lastDate:today(), stickers:{}, history:[]};
 var state=load()||JSON.parse(JSON.stringify(DEFAULT));
+state.tomorrow=state.tomorrow||[]; state.history=state.history||[]; state.stickers=state.stickers||{};
 
-/* Ngày mới -> reset việc; ghi sticker nếu hôm qua đạt mục tiêu */
+/* ngày mới: ghi đánh giá hôm qua, chuyển kế hoạch mai -> hôm nay */
 if(state.lastDate!==today()){
-  var doneY=(state.tasks||[]).filter(function(t){return t.done;}).length;
-  if(doneY>=state.goal){ state.stickers=state.stickers||{}; state.stickers[state.lastDate]=true; }
-  (state.tasks||[]).forEach(function(t){t.done=false;});
+  var dY=(state.tasks||[]).filter(function(t){return t.done;}).length, tY=(state.tasks||[]).length;
+  var sY=tY?Math.round(dY/tY*100):0;
+  state.history.push({date:state.lastDate,done:dY,total:tY,goal:state.goal,score:sY});
+  if(state.history.length>60)state.history=state.history.slice(-60);
+  if(dY>=state.goal&&state.goal>0)state.stickers[state.lastDate]=true;
+  if(state.tomorrow.length){
+    state.tasks=state.tomorrow.map(function(t){return {id:Date.now()+Math.floor(Math.random()*9999),emoji:t.emoji,text:t.text,done:false};});
+    state.tomorrow=[];
+  } else { state.tasks.forEach(function(t){t.done=false;}); }
   state.lastDate=today(); save();
 }
 
-/* ===== SOUND ===== */
+/* ====== SOUND ====== */
 var actx;
-function beep(freqs){ if(!state.sound)return; try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)();
-  freqs.forEach(function(f,i){var o=actx.createOscillator(),g=actx.createGain();o.type='triangle';o.frequency.value=f;
-    o.connect(g);g.connect(actx.destination);var t=actx.currentTime+i*0.11;
-    g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.25,t+0.02);
-    g.gain.exponentialRampToValueAtTime(0.0001,t+0.22);o.start(t);o.stop(t+0.24);});}catch(e){} }
-function sFx(){beep([523,659,784,1047]);}
-function tap(){beep([660]);}
+function beep(f){if(!state.sound)return;try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+  f.forEach(function(fr,i){var o=actx.createOscillator(),g=actx.createGain();o.type='triangle';o.frequency.value=fr;o.connect(g);g.connect(actx.destination);
+  var t=actx.currentTime+i*0.11;g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.25,t+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+0.22);o.start(t);o.stop(t+0.24);});}catch(e){}}
+function sFx(){beep([523,659,784,1047]);}function tap(){beep([660]);}function blip(){beep([880]);}
 
-/* ===== CONFETTI + CELEBRATE ===== */
-function confetti(n){ var cols=['#ffc83d','#ff6b8a','#3ddc97','#4cc3ff','#8b5cf6','#ff7eb6'];
-  for(var i=0;i<(n||40);i++){ (function(idx){ var c=document.createElement('div');c.className='confetti';
-    c.style.left=Math.random()*100+'vw';c.style.background=cols[idx%cols.length];
-    var dur=1.6+Math.random()*1.4;c.style.animation='fall '+dur+'s linear forwards';
-    c.style.transform='rotate('+Math.random()*360+'deg)';document.body.appendChild(c);
-    setTimeout(function(){c.remove();},dur*1000); })(i); } }
+/* ====== CONFETTI / CELEBRATE ====== */
+function confetti(n){var c=['#ffc83d','#ff6b8a','#3ddc97','#4cc3ff','#8b5cf6','#ff7eb6'];
+  for(var i=0;i<(n||40);i++){(function(x){var e=document.createElement('div');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=c[x%c.length];
+  var d=1.6+Math.random()*1.4;e.style.animation='fall '+d+'s linear forwards';e.style.transform='rotate('+Math.random()*360+'deg)';document.body.appendChild(e);setTimeout(function(){e.remove();},d*1000);})(i);}}
 var CHEERS=['Giỏi quá! 🌟','Tuyệt vời! 🎉','Bé siêu lắm! 💪','Hoan hô! 👏','Xuất sắc! ✨'];
-function celebrate(big,txt){ var el=document.getElementById('celebrate');
-  document.getElementById('celeB').textContent=big||'🎉';
-  document.getElementById('celeT').textContent=txt||CHEERS[Math.floor(Math.random()*CHEERS.length)];
-  el.classList.add('show');confetti(50);sFx();
-  clearTimeout(celebrate._t);celebrate._t=setTimeout(function(){el.classList.remove('show');},1500); }
+function celebrate(b,t){var el=document.getElementById('celebrate');document.getElementById('celeB').textContent=b||'🎉';
+  document.getElementById('celeT').textContent=t||CHEERS[Math.floor(Math.random()*CHEERS.length)];el.classList.add('show');confetti(50);sFx();
+  clearTimeout(celebrate._t);celebrate._t=setTimeout(function(){el.classList.remove('show');},1500);}
 
-/* ===== RENDER ===== */
+/* ====== HELPERS ĐÁNH GIÁ ====== */
 function doneCount(){return state.tasks.filter(function(t){return t.done;}).length;}
+function todayScore(){var t=state.tasks.length;return t?Math.round(doneCount()/t*100):0;}
+function ratingLabel(s,d,g){if(d>=g&&g>0)return 'Siêu chăm! 🌟🌟🌟';if(s>=80)return 'Rất chăm! 🌟🌟🌟';if(s>=50)return 'Chăm ngoan! 🌟🌟';if(s>0)return 'Cố thêm nhé! 🌟';return 'Bắt đầu nào! 💪';}
+function dShort(k){var p=(''+k).split('-');return p[2]+'/'+p[1];}
+
+/* ====== RENDER ====== */
+var DOW=['CN','T2','T3','T4','T5','T6','T7'];
 function render(){
   document.getElementById('kidName').textContent=state.name;
   document.getElementById('goalNum').textContent=state.goal;
   document.getElementById('soundBtn').textContent=state.sound?'🔊':'🔇';
+  renderTasks(); renderTomorrow(); renderReward(); renderEval(); renderWeek(); save();
+}
+function taskNode(t,isToday){
+  var d=document.createElement('div');d.className='task'+(t.done?' done':'');
+  d.innerHTML='<div class="emo">'+t.emoji+'</div><div class="tx"></div>'+(isToday?'<div class="chk">'+(t.done?'✓':'')+'</div>':'')+'<div class="del">🗑️</div>';
+  d.querySelector('.tx').textContent=t.text;
+  return d;
+}
+function renderTasks(){
   var list=document.getElementById('taskList');list.innerHTML='';
-  if(state.tasks.length===0){
-    list.innerHTML='<div class="empty"><span class="big">🌱</span>Chưa có việc nào.<br>Bấm nút thêm việc nhé!</div>';
-  } else {
-    state.tasks.forEach(function(t){
-      var d=document.createElement('div');d.className='task'+(t.done?' done':'');
-      d.innerHTML='<div class="emo">'+t.emoji+'</div><div class="tx"></div>'+
-                  '<div class="chk">'+(t.done?'✓':'')+'</div><div class="del">🗑️</div>';
-      d.querySelector('.tx').textContent=t.text;
-      d.querySelector('.del').onclick=function(e){e.stopPropagation();
-        state.tasks=state.tasks.filter(function(x){return x.id!==t.id;});save();render();};
-      d.onclick=function(){toggle(t.id);};
-      list.appendChild(d);
-    });
-  }
-  var dc=doneCount(), goal=state.goal;
-  var sr=document.getElementById('starsRow');sr.innerHTML='';
-  for(var i=0;i<goal;i++){var s=document.createElement('div');s.className='st'+(i<dc?' on':'');s.textContent='⭐';sr.appendChild(s);}
-  document.getElementById('barFill').style.width=Math.min(100,goal?dc/goal*100:0)+'%';
-  var tr=document.getElementById('trophy');
-  if(dc>=goal&&goal>0){tr.classList.add('win');}else{tr.classList.remove('win');}
-  renderWeek();
-  save();
+  if(state.tasks.length===0){list.innerHTML='<div class="empty"><span class="big">🌱</span>Chưa có việc nào.<br>Bấm nút thêm việc nhé!</div>';return;}
+  state.tasks.forEach(function(t){var d=taskNode(t,true);
+    d.querySelector('.del').onclick=function(e){e.stopPropagation();state.tasks=state.tasks.filter(function(x){return x.id!==t.id;});save();render();};
+    d.onclick=function(){toggle(t.id);};list.appendChild(d);});
 }
-var DOW=['CN','T2','T3','T4','T5','T6','T7'];
+function renderTomorrow(){
+  var list=document.getElementById('tmrList');list.innerHTML='';
+  if(state.tomorrow.length===0){list.innerHTML='<div class="empty"><span class="big">🌙</span>Lên kế hoạch cho ngày mai nào!<br>Sáng mai việc sẽ tự xuất hiện ✨</div>';return;}
+  state.tomorrow.forEach(function(t){var d=taskNode(t,false);
+    d.querySelector('.del').onclick=function(e){e.stopPropagation();state.tomorrow=state.tomorrow.filter(function(x){return x.id!==t.id;});save();render();};
+    list.appendChild(d);});
+}
+function renderReward(){
+  var dc=doneCount(),g=state.goal,sr=document.getElementById('starsRow');sr.innerHTML='';
+  for(var i=0;i<g;i++){var s=document.createElement('div');s.className='st'+(i<dc?' on':'');s.textContent='⭐';sr.appendChild(s);}
+  document.getElementById('barFill').style.width=Math.min(100,g?dc/g*100:0)+'%';
+  var tr=document.getElementById('trophy');if(dc>=g&&g>0)tr.classList.add('win');else tr.classList.remove('win');
+}
+function renderEval(){
+  var s=todayScore();document.getElementById('evalScore').textContent=s;
+  document.getElementById('evalLabel').textContent=ratingLabel(s,doneCount(),state.goal);
+  var arr=state.history.slice(-6).map(function(h){return {l:dShort(h.date),s:h.score};});
+  arr.push({l:'Nay',s:s});
+  var box=document.getElementById('evalBars');box.innerHTML='';
+  arr.forEach(function(x){var c=document.createElement('div');c.className='ebar';
+    c.innerHTML='<div class="ebar-track"><i style="height:'+Math.max(6,x.s)+'%"></i></div><span>'+x.l+'</span>';box.appendChild(c);});
+}
 function renderWeek(){
-  var box=document.getElementById('days');box.innerHTML='';
-  var now=new Date(); var dow=now.getDay();
-  var monOffset=(dow===0?-6:1-dow);
-  for(var i=0;i<7;i++){
-    var d=new Date(now);d.setDate(now.getDate()+monOffset+i);
-    var key=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
-    var isToday=key===today();
-    var won=(state.stickers&&state.stickers[key])||(isToday&&doneCount()>=state.goal&&state.goal>0);
-    var el=document.createElement('div');el.className='day'+(won?' win':'')+(isToday?' today':'');
-    el.innerHTML='<div class="dot">'+(won?'🌟':'·')+'</div><div class="lbl">'+DOW[d.getDay()]+'</div>';
-    box.appendChild(el);
-  }
+  var box=document.getElementById('days');box.innerHTML='';var now=new Date();var dow=now.getDay();var mo=(dow===0?-6:1-dow);
+  for(var i=0;i<7;i++){var d=new Date(now);d.setDate(now.getDate()+mo+i);
+    var key=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();var isT=key===today();
+    var won=(state.stickers&&state.stickers[key])||(isT&&doneCount()>=state.goal&&state.goal>0);
+    var el=document.createElement('div');el.className='day'+(won?' win':'')+(isT?' today':'');
+    el.innerHTML='<div class="dot">'+(won?'🌟':'·')+'</div><div class="lbl">'+DOW[d.getDay()]+'</div>';box.appendChild(el);}
 }
-function toggle(id){
-  var t=state.tasks.find(function(x){return x.id===id;});if(!t)return;
-  t.done=!t.done; save();
-  if(t.done){tap();confetti(18);}
-  render();
-  if(t.done && doneCount()===state.goal && state.goal>0){
-    state.stickers=state.stickers||{}; state.stickers[today()]=true; save();
-    setTimeout(function(){celebrate('🏆','Hoàn thành mục tiêu hôm nay!');},250);
-    renderWeek();
-  }
-}
+function toggle(id){var t=state.tasks.find(function(x){return x.id===id;});if(!t)return;t.done=!t.done;save();
+  if(t.done){tap();confetti(18);}render();
+  if(t.done&&doneCount()===state.goal&&state.goal>0){state.stickers[today()]=true;save();setTimeout(function(){celebrate('🏆','Hoàn thành mục tiêu hôm nay!');},250);
+    botSay(robotEvaluate());renderWeek();}}
 
-/* ===== ADD TASK ===== */
-var PRESETS=[['🦷','Đánh răng'],['📖','Đọc sách'],['🏃','Tập thể dục'],['🛏️','Dọn giường'],
-  ['🥗','Ăn rau'],['💧','Uống nước'],['🎨','Vẽ tranh'],['🎹','Tập đàn'],['🧸','Dọn đồ chơi'],
-  ['🐶','Cho thú cưng ăn'],['🙏','Cảm ơn ba mẹ'],['😴','Ngủ đúng giờ']];
+/* ====== ROBOT ====== */
+function chatBox(){return document.getElementById('chat');}
+function botSay(txt){var b=document.createElement('div');b.className='bub bot';b.textContent=txt;chatBox().appendChild(b);chatBox().scrollTop=chatBox().scrollHeight;blip();}
+function meSay(txt){var b=document.createElement('div');b.className='bub me';b.textContent=txt;chatBox().appendChild(b);chatBox().scrollTop=chatBox().scrollHeight;}
+function typing(on){var ex=document.getElementById('typing');if(on){if(ex)return;var b=document.createElement('div');b.className='bub bot typing';b.id='typing';b.innerHTML='<i></i><i></i><i></i>';chatBox().appendChild(b);chatBox().scrollTop=chatBox().scrollHeight;}else if(ex){ex.remove();}}
+
+function robotEvaluate(){var d=doneCount(),t=state.tasks.length,g=state.goal,s=todayScore();
+  if(t===0)return 'Hôm nay con chưa thêm việc nào. Mình cùng thêm vài việc nhỏ nhé! 📋';
+  if(d>=g&&g>0)return 'Tuyệt vời '+state.name+'! Con làm xong '+d+'/'+t+' việc, đạt mục tiêu rồi! Độ chăm chỉ '+s+' điểm 🌟 Con giỏi lắm!';
+  var left=Math.max(0,g-d);
+  return 'Hôm nay con làm xong '+d+'/'+t+' việc, được '+s+' điểm chăm chỉ. Cố thêm '+left+' việc nữa là đạt mục tiêu nha! 💪';}
+var TIPS=['Việc khó làm trước, việc dễ làm sau, con sẽ thấy nhẹ nhàng hơn! 💡','Làm xong việc rồi mới chơi, chơi sẽ vui gấp đôi đó! 🎮','Mỗi ngày làm đúng giờ sẽ thành thói quen tốt. ⏰','Việc lớn quá thì chia nhỏ ra từng bước nhé. 🧩','Tối lên kế hoạch cho ngày mai, sáng dậy con sẽ không bối rối. 📝','Khoe ba mẹ những việc con đã làm được nhé! 💖','Tập trung 10 phút rồi nghỉ, sẽ làm được nhiều việc hơn. 🚀','Uống đủ nước và ngủ sớm giúp con khỏe và chăm hơn! 💧'];
+var tipIdx=0;
+function robotTip(){var t=TIPS[tipIdx%TIPS.length];tipIdx++;return t;}
+function robotPlanNudge(){var n=state.tomorrow.length;
+  if(n===0)return 'Mình cùng chọn 2-3 việc cho ngày mai nhé! Bấm "Thêm việc cho ngày mai" ở dưới nha. 📝';
+  return 'Ngày mai con đã có '+n+' việc rồi, giỏi quá! Sáng mai mở app là thấy ngay. ✨';}
+/* trả lời tự do (offline, an toàn, tích cực) */
+function robotReplyLocal(text){var s=(text||'').toLowerCase();
+  if(/buồn|khóc|chán|sad|cô đơn/.test(s))return 'Mình hiểu mà. Hít thở thật sâu rồi mình làm một việc nhỏ thôi nhé. Con luôn tuyệt vời! 💖';
+  if(/khó|hard|không làm được|sợ/.test(s))return 'Việc khó thì mình chia nhỏ ra, làm từng chút một. Con làm được mà! 🧩';
+  if(/chơi|game|play|xem/.test(s))return 'Mình làm xong việc hôm nay đã nhé, rồi chơi sẽ vui hơn nhiều! 🎮';
+  if(/mệt|tired|ngủ|buồn ngủ/.test(s))return 'Nghỉ một chút cũng được. Uống nước rồi mình làm tiếp nha. 💧';
+  if(/yêu|thương|love|cảm ơn|thanks|cám ơn/.test(s))return 'Mình cũng quý con lắm! Cùng cố gắng mỗi ngày nhé 💖';
+  if(/chào|hi|hello|xin chào|hế lô/.test(s))return 'Chào '+state.name+'! Hôm nay mình cùng chăm chỉ nhé! 🤖';
+  if(/mai|ngày mai|kế hoạch|plan/.test(s))return robotPlanNudge();
+  if(/khuyên|lời khuyên|tip|làm sao/.test(s))return robotTip();
+  return robotEvaluate();}
+
+function robotContext(){return {name:state.name,done:doneCount(),total:state.tasks.length,goal:state.goal,score:todayScore(),tomorrowCount:state.tomorrow.length,last7:state.history.slice(-7)};}
+function askRobotAI(userText){ /* gọi proxy backend nếu có, trả Promise<string|null> */
+  if(!AI_ENDPOINT)return Promise.resolve(null);
+  return fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:userText,context:robotContext()})})
+    .then(function(r){return r.json();}).then(function(d){return (d&&d.reply)||null;}).catch(function(){return null;});}
+
+function robotSend(text){ if(!text)return; meSay(text);
+  typing(true);
+  askRobotAI(text).then(function(ai){ typing(false); botSay(ai||robotReplyLocal(text)); });
+}
+document.querySelectorAll('.rchip').forEach(function(b){b.onclick=function(){var a=b.dataset.act;tap();
+  if(a==='eval'){meSay('Hôm nay con sao? 📊');typing(true);setTimeout(function(){typing(false);botSay(robotEvaluate());},350);}
+  else if(a==='tip'){meSay('Khuyên con đi 💡');typing(true);setTimeout(function(){typing(false);botSay(robotTip());},350);}
+  else if(a==='plan'){meSay('Lên kế hoạch mai 📝');typing(true);setTimeout(function(){typing(false);botSay(robotPlanNudge());document.getElementById('openAddTmr').scrollIntoView({behavior:'smooth',block:'center'});},350);}
+  else if(a==='cheer'){celebrate('🎉');botSay('Hoan hô '+state.name+'! Con là ngôi sao chăm chỉ! 🌟');}
+};});
+document.getElementById('rsend').onclick=function(){var v=document.getElementById('rinput').value.trim();if(!v)return;document.getElementById('rinput').value='';robotSend(v);};
+document.getElementById('rinput').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('rsend').click();});
+
+/* ====== ADD TASK (dùng chung hôm nay / ngày mai) ====== */
+var PRESETS=[['🦷','Đánh răng'],['📖','Đọc sách'],['🏃','Tập thể dục'],['🛏️','Dọn giường'],['🥗','Ăn rau'],['💧','Uống nước'],['🎨','Vẽ tranh'],['🎹','Tập đàn'],['🧸','Dọn đồ chơi'],['🐶','Cho thú cưng ăn'],['🙏','Cảm ơn ba mẹ'],['😴','Ngủ đúng giờ']];
 var EMOJIS=['😀','🦷','📚','📖','🏃','🎨','🎹','⚽','🧸','🌱','🐶','🐱','🥗','💧','🛏️','🧹','🎵','⭐','❤️','🚀'];
-var pickedEmoji='😀';
-function buildModal(){
-  var p=document.getElementById('preset');p.innerHTML='';
-  PRESETS.forEach(function(it){var b=document.createElement('button');b.className='chip';
-    b.innerHTML='<span style="font-size:20px">'+it[0]+'</span> '+it[1];
+var pickedEmoji='😀', addTarget='today';
+function buildModal(){var p=document.getElementById('preset');p.innerHTML='';
+  PRESETS.forEach(function(it){var b=document.createElement('button');b.className='chip';b.innerHTML='<span style="font-size:20px">'+it[0]+'</span> '+it[1];
     b.onclick=function(){addTask(it[0],it[1]);closeAdd();celebrate('✅','Đã thêm việc!');};p.appendChild(b);});
   var e=document.getElementById('emojis');e.innerHTML='';
-  EMOJIS.forEach(function(em){var b=document.createElement('button');b.className='emo-pick'+(em===pickedEmoji?' on':'');
-    b.textContent=em;b.onclick=function(){pickedEmoji=em;buildModal();};e.appendChild(b);});
-}
-function addTask(emoji,text){ state.tasks.push({id:Date.now()+Math.floor(Math.random()*999),emoji:emoji,text:text,done:false});save();render(); }
-function openAdd(){pickedEmoji='😀';document.getElementById('taskInput').value='';document.getElementById('taskInput').style.borderColor='';buildModal();document.getElementById('overlay').classList.add('show');}
+  EMOJIS.forEach(function(em){var b=document.createElement('button');b.className='emo-pick'+(em===pickedEmoji?' on':'');b.textContent=em;b.onclick=function(){pickedEmoji=em;buildModal();};e.appendChild(b);});}
+function addTask(emoji,text){var item={id:Date.now()+Math.floor(Math.random()*9999),emoji:emoji,text:text,done:false};
+  if(addTarget==='today')state.tasks.push(item);else state.tomorrow.push({id:item.id,emoji:emoji,text:text});save();render();}
+function openAdd(target){addTarget=target;pickedEmoji='😀';
+  document.getElementById('sheetTitle').textContent=target==='today'?'Thêm việc hôm nay 🌈':'Thêm việc cho ngày mai 🌙';
+  document.getElementById('taskInput').value='';document.getElementById('taskInput').style.borderColor='';buildModal();document.getElementById('overlay').classList.add('show');}
 function closeAdd(){document.getElementById('overlay').classList.remove('show');}
-document.getElementById('openAdd').onclick=function(){tap();openAdd();};
+document.getElementById('openAdd').onclick=function(){tap();openAdd('today');};
+document.getElementById('openAddTmr').onclick=function(){tap();openAdd('tomorrow');};
 document.getElementById('cancelAdd').onclick=closeAdd;
 document.getElementById('overlay').onclick=function(e){if(e.target===this)closeAdd();};
-document.getElementById('confirmAdd').onclick=function(){
-  var v=document.getElementById('taskInput').value.trim();
-  if(!v){document.getElementById('taskInput').style.borderColor='var(--coral)';return;}
-  addTask(pickedEmoji,v);closeAdd();celebrate('✅','Đã thêm việc!');
-};
+document.getElementById('confirmAdd').onclick=function(){var v=document.getElementById('taskInput').value.trim();
+  if(!v){document.getElementById('taskInput').style.borderColor='var(--coral)';return;}addTask(pickedEmoji,v);closeAdd();celebrate('✅','Đã thêm việc!');};
 document.getElementById('taskInput').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('confirmAdd').click();});
 
-/* ===== GOAL / NAME / SOUND / MASCOT ===== */
+/* ====== GOAL/NAME/SOUND/MASCOT ====== */
 document.getElementById('goalPlus').onclick=function(){if(state.goal<8){state.goal++;tap();render();}};
 document.getElementById('goalMinus').onclick=function(){if(state.goal>1){state.goal--;tap();render();}};
-document.getElementById('nameBtn').onclick=function(){
-  var n=prompt('Tên của bé là gì?',state.name);if(n&&n.trim()){state.name=n.trim().slice(0,16);save();render();}
-};
+document.getElementById('nameBtn').onclick=function(){var n=prompt('Tên của bé là gì?',state.name);if(n&&n.trim()){state.name=n.trim().slice(0,16);save();render();}};
 document.getElementById('soundBtn').onclick=function(){state.sound=!state.sound;save();render();if(state.sound)tap();};
-document.getElementById('mascot').onclick=function(){var c=['Bé giỏi lắm! 🌟','Cố lên nha! 💪','Mình tin bé làm được! ✨','Yêu bé nhiều! 💖'];
-  celebrate('⭐',c[Math.floor(Math.random()*c.length)]);};
+document.getElementById('mascot').onclick=function(){var c=['Bé giỏi lắm! 🌟','Cố lên nha! 💪','Mình tin bé làm được! ✨','Yêu bé nhiều! 💖'];celebrate('⭐',c[Math.floor(Math.random()*c.length)]);};
 
-/* ===== FOCUS TIMER ===== */
-var C=552.9, dur=5*60, left=dur, running=false, ti=null;
+/* ====== FOCUS TIMER ====== */
+var C=552.9,dur=300,left=dur,running=false,ti=null;
 function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
-function drawTimer(){
-  document.getElementById('timerTxt').textContent=fmt(left);
-  var prog=dur?left/dur:0;document.getElementById('ring').style.strokeDashoffset=C*(1-prog);
-  var ch=document.getElementById('timerCh');
-  ch.textContent=!running?'🚀':(prog>.66?'🚀':prog>.33?'🌟':'🎯');
-}
-function tick(){ if(left<=0){stopTimer(true);return;} left--;drawTimer(); }
-function startTimer(){ if(running)return;running=true;document.getElementById('timerBtn').textContent='⏸️ Tạm nghỉ';ti=setInterval(tick,1000); }
+function drawTimer(){document.getElementById('timerTxt').textContent=fmt(left);var p=dur?left/dur:0;document.getElementById('ring').style.strokeDashoffset=C*(1-p);
+  document.getElementById('timerCh').textContent=!running?'🚀':(p>.66?'🚀':p>.33?'🌟':'🎯');}
+function tick(){if(left<=0){stopTimer(true);return;}left--;drawTimer();}
+function startTimer(){if(running)return;running=true;document.getElementById('timerBtn').textContent='⏸️ Tạm nghỉ';ti=setInterval(tick,1000);}
 function pauseTimer(){running=false;clearInterval(ti);document.getElementById('timerBtn').textContent='▶️ Tiếp tục';drawTimer();}
-function stopTimer(finished){running=false;clearInterval(ti);
-  if(finished){left=0;drawTimer();celebrate('🎉','Bé tập trung rất giỏi!');
-    document.getElementById('timerBtn').textContent='▶️ Bắt đầu';left=dur;setTimeout(drawTimer,1600);} }
+function stopTimer(f){running=false;clearInterval(ti);if(f){left=0;drawTimer();celebrate('🎉','Bé tập trung rất giỏi!');botSay('Con vừa tập trung xong một lượt, giỏi lắm! 🚀');document.getElementById('timerBtn').textContent='▶️ Bắt đầu';left=dur;setTimeout(drawTimer,1600);}}
 document.getElementById('timerBtn').onclick=function(){tap();if(running)pauseTimer();else startTimer();};
-document.querySelectorAll('.dur').forEach(function(b){
-  b.onclick=function(){document.querySelectorAll('.dur').forEach(function(x){x.classList.remove('on');});
-    b.classList.add('on');dur=parseInt(b.dataset.min)*60;left=dur;pauseTimer();
-    document.getElementById('timerBtn').textContent='▶️ Bắt đầu';drawTimer();};
-});
+document.querySelectorAll('.dur').forEach(function(b){b.onclick=function(){document.querySelectorAll('.dur').forEach(function(x){x.classList.remove('on');});b.classList.add('on');dur=parseInt(b.dataset.min)*60;left=dur;pauseTimer();document.getElementById('timerBtn').textContent='▶️ Bắt đầu';drawTimer();};});
 
-/* ===== GO ===== */
+/* ====== GO ====== */
 render(); drawTimer();
+botSay('Chào '+state.name+'! Mình là Robot Tích Tắc 🤖. Bấm các nút bên dưới để mình giúp con nhé!');
 </script>
 </body>
 </html>
