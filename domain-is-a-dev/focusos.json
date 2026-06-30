@@ -1,9 +1,9 @@
 {
   "owner": {
-    "username": "<github-username>",
-    "email": "ban@example.com"
+    "username": "uyenkhuongtran-tech",
+    "email": "uyenkhuongtran@gmail.com"
   },
   "records": {
-    "CNAME": "<github-username>.github.io"
+    "CNAME": "uyenkhuongtran-tech.github.io"
   }
 }
